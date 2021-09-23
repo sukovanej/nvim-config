@@ -1,4 +1,5 @@
-local completion_icons = {
+local P = {}
+P.completion_icons = {
     '', -- Text
     '', -- Method
     '', -- Function
@@ -25,3 +26,5 @@ local completion_icons = {
     'ﬦ', -- Operator
     '', -- TypeParameter
 }
+
+return P

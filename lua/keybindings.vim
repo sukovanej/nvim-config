@@ -42,13 +42,13 @@ autocmd FileType python nnoremap <leader>p :Pytest file verbose<cr>
 
 " LSP
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent><space>f <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gh :Lspsaga lsp_finder<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> K  :Lspsaga hover_doc<CR>
 nnoremap <silent> gR :Lspsaga rename<CR>
 nnoremap <silent> gD :Lspsaga preview_definition<CR>
 
-nnoremap <silent><space>f <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent><space>ca :Lspsaga code_action<CR>
 
 nnoremap <silent> <space>cd :Lspsaga show_line_diagnostics<CR>

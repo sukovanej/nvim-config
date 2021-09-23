@@ -1,9 +1,8 @@
-runtime base.vim
-runtime plugins.vim
-runtime keybindings.vim
-" runtime coc.nvim
-runtime theme.vim
-runtime filetypes.vim
-runtime lsp_config.lua
-runtime tree_sitter.lua
-runtime autocomplete.vim
+runtime lua/base.vim
+runtime lua/plugins.vim
+runtime lua/keybindings.vim
+runtime lua/theme.vim
+runtime lua/filetypes.vim
+runtime lua/lsp_config.lua
+runtime lua/tree_sitter.lua
+runtime lua/autocomplete.vim
