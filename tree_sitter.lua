@@ -1,23 +1,11 @@
 require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = false,
-    disable = {},
-  },
-  ensure_installed = {
-    "tsx",
-    "toml",
-    "fish",
-    "python",
-    "json",
-    "yaml",
-    "rust",
-    "html",
-    "scss",
-    "scss",
-    "lua",
-  },
+    highlight = {
+      enable = true,
+    },
+    ensure_installed = 'maintained',
+    indent = { enable = true },
+    autopairs = { enable = true },
+    rainbow = { enable = true },
+    autotag = { enable = true },
+    context_commentstring = { enable = true },
 }
