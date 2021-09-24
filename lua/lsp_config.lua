@@ -1,29 +1,42 @@
-local nvim_lsp = require 'lspconfig'
 local saga = require 'lspsaga'
 local completion = require 'completion'
 local protocol = require 'vim.lsp.protocol'
-local lspinstall = require 'lspinstall'
-local completion_icons = require('completion_icons')
+local completion_icons = require 'completion_icons'
+local lsp_installer = require "nvim-lsp-installer"
 
 protocol.CompletionItemKind = completion_icons.completion_icons
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- autocomplete
   completion.on_attach(client, bufnr)
 end
 
-lspinstall.setup()
-local servers = lspinstall.installed_servers()
+local language_settings = {
+    sumneko_lua = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+lsp_installer.on_server_ready(function(server)
+  local opts = {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+    settings=language_settings[server]
   }
-end
+
+  -- (optional) Customize the options passed to the server
+  -- if server.name == "tsserver" then
+  --     opts.root_dir = function() ... end
+  -- end
+
+  -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 saga.init_lsp_saga()

@@ -3,8 +3,8 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
     },
     ensure_installed = 'maintained',
-    indent = { enable = true },
-    autopairs = { enable = true },
+    -- indent doesn't work well for me for Python
+    -- indent = { enable = true },
     rainbow = { enable = true },
     autotag = { enable = true },
     context_commentstring = { enable = true },

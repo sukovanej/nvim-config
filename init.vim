@@ -1,5 +1,5 @@
 runtime lua/base.vim
-runtime lua/plugins.vim
+runtime lua/plugins.lua
 runtime lua/keybindings.vim
 runtime lua/theme.vim
 runtime lua/filetypes.vim

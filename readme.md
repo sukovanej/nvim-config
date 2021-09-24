@@ -1,5 +1,11 @@
 # Neovim config
 
+## Initialize
+
+```bash
+$ nvim +PlugInstall
+```
+
 ## Installing languages LSP
 
 ```

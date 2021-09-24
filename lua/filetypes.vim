@@ -30,3 +30,6 @@ au BufNewFile,BufRead *.hs setlocal filetype=haskell
 
 " Tmux conf
 au BufNewFile,BufRead *.conf.local setlocal filetype=conf
+
+" lua
+autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab " formating for ts files
