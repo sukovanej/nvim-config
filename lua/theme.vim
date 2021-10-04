@@ -7,5 +7,4 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Common
 syntax on
-" colorscheme nightfly
-colorscheme nightfox
+colorscheme dracula

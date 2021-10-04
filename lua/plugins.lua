@@ -26,6 +26,7 @@ Plug 'mileszs/ack.vim'
 -- Theme
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'Mofiqul/dracula.nvim'
 
 -- Terraform plugin
 Plug 'hashivim/vim-terraform'
