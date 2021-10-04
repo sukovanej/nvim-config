@@ -15,7 +15,7 @@ set updatetime=300
 set encoding=UTF-8
 set termguicolors
 set mouse=a
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set number
 set relativenumber
 let mapleader = ','
