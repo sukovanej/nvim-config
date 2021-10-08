@@ -6,10 +6,6 @@ local lsp_installer = require "nvim-lsp-installer"
 
 protocol.CompletionItemKind = completion_icons.completion_icons
 
-local on_attach = function(client, bufnr)
-  completion.on_attach(client, bufnr)
-end
-
 local language_settings = {
     sumneko_lua = {
         Lua = {
@@ -22,7 +18,7 @@ local language_settings = {
 
 lsp_installer.on_server_ready(function(server)
   local opts = {
-    on_attach = on_attach,
+    on_attach = completion.on_attach,
     flags = {
       debounce_text_changes = 150,
     },

@@ -37,7 +37,7 @@ nnoremap gC :BufOnly<cr>
 tnoremap <Esc> <C-\><C-n>
 
 " Python
-autocmd FileType python nnoremap <leader>p :Pytest file verbose<cr>
+" autocmd FileType python nnoremap <leader>p :Pytest file verbose<cr>
 " autocmd FileType python nnoremap <leader>i :CocCommand pyright.organizeimports<cr>
 
 " LSP
