@@ -1,36 +1,37 @@
 local saga = require 'lspsaga'
-local completion = require 'completion'
 local protocol = require 'vim.lsp.protocol'
 local completion_icons = require 'completion_icons'
 local lsp_installer = require "nvim-lsp-installer"
 
-protocol.CompletionItemKind = completion_icons.completion_icons
+-- protocol.CompletionItemKind = completion_icons.completion_icons
 
-local language_settings = {
-    sumneko_lua = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-}
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 lsp_installer.on_server_ready(function(server)
   local opts = {
-    on_attach = completion.on_attach,
+    -- on_attach = completion.on_attach,
     flags = {
       debounce_text_changes = 150,
     },
-    settings=language_settings[server]
+    capabilities = capabilities,
   }
 
-  -- (optional) Customize the options passed to the server
-  -- if server.name == "tsserver" then
-  --     opts.root_dir = function() ... end
-  -- end
+  if server.name == "sumneko_lua" then
+    opts.settings = {
+      sumneko_lua = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          }
+        }
+      }
+    }
+  elseif server.name == "pyright" then
+    -- nothing
+  end
 
-  -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)

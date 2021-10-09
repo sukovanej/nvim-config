@@ -1,5 +1,4 @@
 " Python
-let g:python_highlight_all = 1
 autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab " formating for html files
 
 " Markdown

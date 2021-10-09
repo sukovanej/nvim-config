@@ -53,6 +53,8 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'ryanoasis/vim-devicons'
 
 -- Completion
-Plug 'nvim-lua/completion-nvim'
+-- Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 
 vim.call('plug#end')
