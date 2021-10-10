@@ -1,5 +1,10 @@
 # Neovim config
 
+## Requirements
+
+ - Nerd font - https://github.com/ryanoasis/nerd-fonts
+ - vim-plug - https://github.com/junegunn/vim-plug
+
 ## Initialize
 
 ```bash
@@ -10,6 +15,12 @@ $ nvim +PlugInstall
 
 ```
 :LspInstall <language-name>
+```
+
+## Update treesitter grammars
+
+```
+:TSUpdate
 ```
 
 ## Keybindings

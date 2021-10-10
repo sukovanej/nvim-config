@@ -26,10 +26,12 @@ Plug 'mileszs/ack.vim'
 -- Theme
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'mhartington/oceanic-next'
 Plug 'Mofiqul/dracula.nvim'
-
--- Terraform plugin
-Plug 'hashivim/vim-terraform'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'marko-cerovac/material.nvim'
+Plug 'hashivim/vim-terraform' -- Terraform plugin
 
 -- Lsp
 Plug 'neovim/nvim-lspconfig'
@@ -56,5 +58,6 @@ Plug 'ryanoasis/vim-devicons'
 -- Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
 Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+Plug 'onsails/lspkind-nvim' -- Autocomplete icons
 
 vim.call('plug#end')
