@@ -12,6 +12,4 @@ vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
 vim.cmd [[syntax on]]
 vim.cmd [[syntax enable]]
 
-material_theme.setup()
-vim.g.material_style = "deep ocean"
-vim.cmd [[colorscheme material]]
+vim.cmd [[colo srcery]]

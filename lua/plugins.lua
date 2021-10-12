@@ -31,6 +31,8 @@ Plug 'Mofiqul/dracula.nvim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'marko-cerovac/material.nvim'
+Plug 'junegunn/seoul256.vim'
+Plug 'srcery-colors/srcery-vim'
 Plug 'hashivim/vim-terraform' -- Terraform plugin
 
 -- Lsp
