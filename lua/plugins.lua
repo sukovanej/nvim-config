@@ -37,7 +37,6 @@ Plug 'hashivim/vim-terraform' -- Terraform plugin
 
 -- Lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 
 -- airline

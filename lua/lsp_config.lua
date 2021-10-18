@@ -1,6 +1,3 @@
-local saga = require 'lspsaga'
-local protocol = require 'vim.lsp.protocol'
-local completion_icons = require 'completion_icons'
 local lsp_installer = require "nvim-lsp-installer"
 
 -- protocol.CompletionItemKind = completion_icons.completion_icons
@@ -35,5 +32,3 @@ lsp_installer.on_server_ready(function(server)
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)
-
-saga.init_lsp_saga()

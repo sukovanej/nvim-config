@@ -30,15 +30,13 @@ tnoremap <Esc> <C-\><C-n>
 
 " LSP
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent><space>f <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
-nnoremap <silent> gs :Lspsaga signature_help<CR>
+nnoremap <silent> <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> C-K <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gR :Lspsaga rename<CR>
-nnoremap <silent> gD :Lspsaga preview_definition<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gR <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>>
+nnoremap <silent> <space>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 
-nnoremap <silent><space>ca :Lspsaga code_action<CR>
-
-nnoremap <silent> <space>cd :Lspsaga show_line_diagnostics<CR>
+" LSP code diagnostics
+nnoremap <silent> [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
