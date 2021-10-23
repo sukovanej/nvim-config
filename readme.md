@@ -2,6 +2,13 @@
 
 ![screenshot](assets/screenshot.png)
 
+## Features
+
+ - linting and completion using LSP
+ - syntax highlighting using TreeSitter
+ - fuzzy finder using FZF
+ - airline
+
 ## Installation
 
  - install Nerd font - https://github.com/ryanoasis/nerd-fonts
