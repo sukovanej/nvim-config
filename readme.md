@@ -1,26 +1,18 @@
 # Neovim config
 
-## Requirements
+![screenshot](assets/screenshot.png)
 
- - Nerd font - https://github.com/ryanoasis/nerd-fonts
- - vim-plug - https://github.com/junegunn/vim-plug
+## Installation
 
-## Initialize
-
-```bash
-$ nvim +PlugInstall
-```
+ - install Nerd font - https://github.com/ryanoasis/nerd-fonts
+ - install packer.vim - https://github.com/wbthomason/packer.nvim
+ - run `:PackerCompile` + `:PackerInstall`
+ - TreeSitter update should happen automatically after the initial installation but you can trigger it with `:TSUpdate`
 
 ## Installing languages LSP
 
 ```
 :LspInstall <language-name>
-```
-
-## Update treesitter grammars
-
-```
-:TSUpdate
 ```
 
 ## Keybindings
