@@ -1,6 +1,3 @@
-local material_theme = require 'material'
--- Airline
-
 vim.cmd [[set t_Co=256]]
 
 vim.g.airline_powerline_fonts = 1

@@ -1,64 +1,61 @@
-local Plug = vim.fn['plug#']
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-vim.call('plug#begin', '~/.config/nvim/plugged')
+-- Only required if you have packer configured as `opt`
+vim.cmd [[packadd packer.nvim]]
 
--- Prisma syntax hightlighting
-Plug 'pantharshit00/vim-prisma'
+return require('packer').startup(function(use)
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
 
--- Haskell
-Plug 'pbrisbin/vim-syntax-shakespeare'
+  -- Prisma syntax hightlighting
+  use 'pantharshit00/vim-prisma'
 
--- tmux navigation
-Plug 'christoomey/vim-tmux-navigator'
+  -- Haskell
+  use 'pbrisbin/vim-syntax-shakespeare'
 
--- vim-surround + repeat
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
+  -- tmux navigation
+  use 'christoomey/vim-tmux-navigator'
 
--- clojure
-Plug 'Olical/conjure'  -- conjure
-Plug 'guns/vim-sexp'  -- something like paredit
-Plug 'tpope/vim-sexp-mappings-for-regular-people'  -- syrup
+  -- vim-surround + repeat
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
 
--- search
-Plug 'mileszs/ack.vim'
+  -- clojure
+  use 'Olical/conjure'  -- conjure
+  use 'guns/vim-sexp'  -- something like paredit
+  use 'tpope/vim-sexp-mappings-for-regular-people'  -- syrup
 
--- Theme
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'mhartington/oceanic-next'
-Plug 'Mofiqul/dracula.nvim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'marko-cerovac/material.nvim'
-Plug 'junegunn/seoul256.vim'
-Plug 'srcery-colors/srcery-vim'
-Plug 'hashivim/vim-terraform' -- Terraform plugin
+  -- search
+  use 'mileszs/ack.vim'
 
--- Lsp
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+  -- Theme
+  use 'srcery-colors/srcery-vim'
+  use 'hashivim/vim-terraform' -- Terraform plugin
 
--- airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+  -- Lsp
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
 
--- Fzf
-Plug('junegunn/fzf', {['do'] = function() vim.call('fzf#install()') end })
-Plug 'junegunn/fzf.vim'
+  -- airline
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
 
--- Syntax highlight
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = function() vim.call(':TSUpdate') end})
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'p00f/nvim-ts-rainbow'
+  -- Fzf
+  use 'junegunn/fzf' -- function() vim.call('fzf#install()') end
+  use 'junegunn/fzf.vim'
 
--- Icons
-Plug 'ryanoasis/vim-devicons'
+  -- Syntax highlight
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'p00f/nvim-ts-rainbow'
 
--- Completion
--- Plug 'nvim-lua/completion-nvim'
-Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-Plug 'onsails/lspkind-nvim' -- Autocomplete icons
+  -- Icons
+  use 'ryanoasis/vim-devicons'
 
-vim.call('plug#end')
+  -- Completion
+  -- Plug 'nvim-lua/completion-nvim'
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'onsails/lspkind-nvim' -- Autocomplete icons
+
+end)

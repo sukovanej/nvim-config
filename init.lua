@@ -1,0 +1,8 @@
+require 'lua/base'
+require 'lua/plugins'
+require 'lua/keybindings'
+require 'lua/theme'
+require 'lua/filetypes'
+require 'lua/lsp_config'
+require 'lua/tree_sitter'
+require 'lua/completion'
