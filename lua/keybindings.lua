@@ -37,6 +37,7 @@ vim.cmd [[nnoremap <silent> C-K <cmd>lua vim.lsp.buf.signature_help()<CR>]]
 vim.cmd [[nnoremap <silent> gR <cmd>lua vim.lsp.buf.rename()<CR>]]
 vim.cmd [[nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>>]]
 vim.cmd [[nnoremap <silent> <space>ca <cmd>lua vim.lsp.buf.code_action()<CR>]]
+vim.cmd [[nnoremap <silent> <space>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]]
 
 -- LSP code diagnostics
 vim.cmd [[nnoremap <silent> [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]]
