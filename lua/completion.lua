@@ -3,13 +3,13 @@ local cmp = require 'cmp'
 
 vim.o.completeopt = 'menuone,noselect'
 
--- TODO: luasnip
+local luasnip = require 'luasnip'
 
 cmp.setup {
   snippet = {
-    -- expand = function(args)
-    --   require('luasnip').lsp_expand(args.body)
-    -- end,
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -27,8 +27,8 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- elseif luasnip.expand_or_jumpable() then
-      --   vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      elseif luasnip.expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
       else
         fallback()
       end
@@ -36,8 +36,8 @@ cmp.setup {
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      --elseif luasnip.jumpable(-1) then
-      --  vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      elseif luasnip.jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
         fallback()
       end
