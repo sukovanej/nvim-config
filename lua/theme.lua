@@ -2,7 +2,7 @@ vim.cmd [[set t_Co=256]]
 
 require'lualine'.setup {
   options = {
-    theme = 'onelight'
+    theme = 'auto'
   }
 }
 
