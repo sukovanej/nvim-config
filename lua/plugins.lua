@@ -20,29 +20,30 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
 
-  -- clojure
-  use 'Olical/conjure'  -- conjure
-  use 'guns/vim-sexp'  -- something like paredit
-  use 'tpope/vim-sexp-mappings-for-regular-people'  -- syrup
-
   -- search
   use 'mileszs/ack.vim'
 
   -- Theme
   use 'srcery-colors/srcery-vim'
   use 'hashivim/vim-terraform' -- Terraform plugin
+  use "projekt0n/github-nvim-theme"
 
   -- Lsp
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
   -- airline
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
+  use 'nvim-lualine/lualine.nvim'
 
   -- Fzf
   use 'junegunn/fzf' -- function() vim.call('fzf#install()') end
   use 'junegunn/fzf.vim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   -- Syntax highlight
   use 'nvim-treesitter/nvim-treesitter'

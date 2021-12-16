@@ -1,7 +1,8 @@
--- Fzf
-vim.cmd [[nnoremap <space><space> :FZF<cr>]]
-vim.cmd [[nnoremap <space>a :Ag<cr>]]
-vim.cmd [[nnoremap <space>b :Buffers<cr>]]
+-- Telescope
+vim.cmd [[nnoremap <space><space> <cmd>lua require('telescope.builtin').find_files()<cr>]]
+vim.cmd [[nnoremap <space>a <cmd>lua require('telescope.builtin').live_grep()<cr>]]
+vim.cmd [[nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>]]
+vim.cmd [[nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>]]
 
 -- clean selection
 vim.cmd [[nnoremap <C-c><C-c> :noh<cr>]]
