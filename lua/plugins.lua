@@ -51,7 +51,8 @@ return require('packer').startup(function(use)
   use 'p00f/nvim-ts-rainbow'
 
   -- Icons
-  use 'ryanoasis/vim-devicons'
+  use 'kyazdani42/nvim-web-devicons'
+  -- use 'ryanoasis/vim-devicons'
 
   -- Completion
   -- Plug 'nvim-lua/completion-nvim'
