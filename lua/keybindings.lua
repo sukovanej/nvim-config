@@ -17,6 +17,8 @@ vim.cmd [[nnoremap <C-h> <C-w>h]]
 
 -- :W = :w
 vim.cmd [[command W w]]
+vim.cmd [[command Wq wq]]
+vim.cmd [[command Wqa wqa]]
 
 -- Basic buffer key bindings
 vim.cmd [[nnoremap gc :bdelete<cr>]]
