@@ -2,6 +2,12 @@ require('telescope').setup{
   pickers = {
     find_files = {
       theme = "dropdown",
+    },
+    buffers = {
+      theme = "dropdown",
+    },
+    live_grep = {
+      theme = "dropdown",
     }
   }
   -- defaults = {
