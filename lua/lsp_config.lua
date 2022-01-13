@@ -27,6 +27,12 @@ lsp_installer.on_server_ready(function(server)
     }
   elseif server.name == "pyright" then
     -- nothing
+  elseif server.name == "tsserver" then
+    -- for tsserver use formatting capability from the null-ls instead
+    opts.on_attach = function(client, buffer)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end
   end
 
   server:setup(opts)
@@ -42,10 +48,11 @@ null_ls.setup {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.formatting.prettier,
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
-      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()"
+      vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
     end
   end,
 }
