@@ -11,10 +11,11 @@ return require("packer").startup(function(use)
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
 
-  -- Theme
-  use "srcery-colors/srcery-vim"
+  -- Terraform
   use "hashivim/vim-terraform"
-  use "projekt0n/github-nvim-theme"
+
+  -- Theme
+  use "folke/tokyonight.nvim"
 
   -- Lsp
   use "neovim/nvim-lspconfig"
@@ -23,6 +24,12 @@ return require("packer").startup(function(use)
 
   -- Lualine
   use "nvim-lualine/lualine.nvim"
+
+  -- Tabline
+  use {
+    "kdheepak/tabline.nvim",
+    requires = { "nvim-lualine/lualine.nvim", "kyazdani42/nvim-web-devicons" },
+  }
 
   -- Telescope
   use {
