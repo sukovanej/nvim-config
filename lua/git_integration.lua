@@ -1,2 +1,5 @@
 require("neogit").setup()
-require("gitsigns").setup({ current_line_blame = true })
+require("gitsigns").setup { current_line_blame = true }
+
+vim.cmd [[nnoremap <silent> <space>gr <cmd>Gitsigns reset_hunk<CR>]]
+vim.cmd [[vnoremap <silent> <space>gr <cmd>'<,'>Gitsigns reset_hunk<CR>]]

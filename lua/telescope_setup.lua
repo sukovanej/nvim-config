@@ -1,15 +1,16 @@
-require('telescope').setup{
+require("telescope").setup {
   pickers = {
     find_files = {
       theme = "dropdown",
+      hidden = true,
     },
     buffers = {
       theme = "dropdown",
     },
     live_grep = {
       theme = "dropdown",
-    }
-  }
+    },
+  },
   -- defaults = {
   --   -- Default configuration for telescope goes here:
   --   -- config_key = value,
