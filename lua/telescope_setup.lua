@@ -1,4 +1,7 @@
 require("telescope").setup {
+  defaults = {
+    file_ignore_patterns = { "node_modules/", ".git/" },
+  },
   pickers = {
     find_files = {
       theme = "dropdown",
@@ -11,13 +14,4 @@ require("telescope").setup {
       theme = "dropdown",
     },
   },
-  -- defaults = {
-  --   -- Default configuration for telescope goes here:
-  --   -- config_key = value,
-  --   mappings = {
-  --     i = {
-  --       ["<C-j>"] = "C-n"
-  --     }
-  --   }
-  -- }
 }
