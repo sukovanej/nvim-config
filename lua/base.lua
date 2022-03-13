@@ -63,3 +63,5 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 ]]
+
+vim.opt_global.shortmess:remove("F")
