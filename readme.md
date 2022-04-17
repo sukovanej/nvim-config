@@ -56,6 +56,13 @@
 | `[e`                  | Diagnostic: previous                          |
 | `]e`                  | Diagnostic: next                              |
 
+### Neogit
+
+| Key                   | Action                                        |
+|-----------------------|-----------------------------------------------|
+| `<space>gs`           | Git status buffer                             |
+| `<space>gc`           | Git commit                                    |
+
 ## TODO
 
  - formatting
