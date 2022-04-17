@@ -17,19 +17,21 @@ lsp_installer.on_server_ready(function(server)
 
   if server.name == "sumneko_lua" then
     opts.settings = {
-      sumneko_lua = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
         },
       },
     }
+    opts.on_attach = function(client, _)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end
   elseif server.name == "pyright" then
     -- nothing
   elseif server.name == "tsserver" then
     -- for tsserver use formatting capability from the null-ls instead
-    opts.on_attach = function(client, buffer)
+    opts.on_attach = function(client, _)
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
     end
