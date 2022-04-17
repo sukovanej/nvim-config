@@ -60,8 +60,8 @@ return require("packer").startup(function(use)
   use "simrat39/rust-tools.nvim"
 
   -- Git
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 
   -- Scala
-  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+  use { "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } }
 end)
