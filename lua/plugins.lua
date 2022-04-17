@@ -53,14 +53,12 @@ return require("packer").startup(function(use)
   use "L3MON4D3/LuaSnip"
 
   -- Git
-  use "TimUntersberger/neogit"
+  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use "lewis6991/gitsigns.nvim"
 
   -- Rust
   use "simrat39/rust-tools.nvim"
-
-  -- Git
-  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 
   -- Scala
   use { "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } }
