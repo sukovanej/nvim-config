@@ -63,6 +63,12 @@
 | `<space>gs`           | Git status buffer                             |
 | `<space>gc`           | Git commit                                    |
 
+### Terminal
+
+| Key                   | Action                                        |
+|-----------------------|-----------------------------------------------|
+| `<ctrl><space>`       | Toogle terminal                               |
+
 ## TODO
 
  - formatting
