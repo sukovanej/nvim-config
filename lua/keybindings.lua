@@ -2,7 +2,6 @@
 vim.cmd [[nnoremap <space><space> <cmd>lua require('telescope.builtin').find_files()<cr>]]
 vim.cmd [[nnoremap <space>a <cmd>lua require('telescope.builtin').live_grep()<cr>]]
 vim.cmd [[nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>]]
-vim.cmd [[nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>]]
 
 -- clean selection
 vim.cmd [[nnoremap <C-c><C-c> :noh<cr>]]
@@ -45,3 +44,9 @@ vim.cmd [[nnoremap <silent> <space>e <cmd>lua vim.diagnostic.open_float(0, {scop
 -- LSP code diagnostics
 vim.cmd [[nnoremap <silent> [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]]
 vim.cmd [[nnoremap <silent> ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>]]
+
+-- Git
+vim.cmd [[nnoremap <silent> <space>gr <cmd>Gitsigns reset_hunk<CR>]]
+vim.cmd [[vnoremap <silent> <space>gr <cmd>'<,'>Gitsigns reset_hunk<CR>]]
+vim.cmd [[nnoremap <silent> <space>gs <cmd>lua require("neogit").open({ kind = "split" })<CR>]]
+vim.cmd [[nnoremap <silent> <space>gc <cmd>Neogit commit<CR>]]
