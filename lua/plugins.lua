@@ -63,4 +63,7 @@ return require("packer").startup(function(use)
 
   -- Scala
   use { "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } }
+
+  -- Toggleterm
+  use { "akinsho/toggleterm.nvim" }
 end)
