@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "p00f/nvim-ts-rainbow"
+  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
   -- Icons
   use "kyazdani42/nvim-web-devicons"
