@@ -52,5 +52,5 @@ vim.cmd [[nnoremap <silent> <space>gs <cmd>lua require("neogit").open({ kind = "
 vim.cmd [[nnoremap <silent> <space>gc <cmd>Neogit commit<CR>]]
 
 -- Toggleterm
-vim.cmd [[tnoremap <C-p> <cmd>:ToggleTerm<CR>]]
-vim.cmd [[nnoremap <C-p> <cmd>:ToggleTerm<CR>]]
+vim.cmd [[tnoremap <C-q> <cmd>:ToggleTerm<CR>]]
+vim.cmd [[nnoremap <C-q> <cmd>:ToggleTerm<CR>]]
