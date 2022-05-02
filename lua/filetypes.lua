@@ -31,6 +31,7 @@ vim.g.yats_host_keyword = 1
 
 -- Haskell
 vim.cmd [[au BufNewFile,BufRead *.hs setlocal filetype=haskell]]
+vim.cmd [[autocmd FileType haskell setlocal ts=2 sts=2 sw=2 expandtab]]
 
 -- Tmux
 vim.cmd [[au BufNewFile,BufRead *.conf.local setlocal filetype=conf]]
