@@ -65,3 +65,5 @@ endif
 ]]
 
 vim.opt_global.shortmess:remove "F"
+
+vim.cmd [[set laststatus=3]]
