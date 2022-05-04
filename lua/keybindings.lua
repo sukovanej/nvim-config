@@ -1,18 +1,23 @@
+local lua_cmd = function(cmd)
+  return "<cmd>lua " + cmd + "<cr>"
+end
+
 -- Telescope
-vim.cmd [[nnoremap <space><space> <cmd>lua require('telescope.builtin').find_files()<cr>]]
-vim.cmd [[nnoremap <space>a <cmd>lua require('telescope.builtin').live_grep()<cr>]]
-vim.cmd [[nnoremap <space>b <cmd>lua require('telescope.builtin').buffers()<cr>]]
+vim.api.nvim_set_keymap("n", "<space><space>", lua_cmd "require('telescope.builtin').find_files()", { noremap = true })
+vim.api.nvim_set_keymap("n", "<space>a", lua_cmd "require('telescope.builtin').live_grep()", { noremap = true })
+vim.api.nvim_set_keymap("n", "<space>b", lua_cmd "require('telescope.builtin').buffers()", { noremap = true })
 
 -- clean selection
-vim.cmd [[nnoremap <C-c><C-c> :noh<cr>]]
+vim.api.nvim_set_keymap("n", "<C-c><C-c>", ":noh<cr>", { noremap = true })
 
 -- windows movement
-vim.cmd [[nnoremap <C-j> <C-w>j]]
-vim.cmd [[nnoremap <C-k> <C-w>k]]
-vim.cmd [[nnoremap <C-l> <C-w>l]]
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
+
 -- https://github.com/neovim/neovim/issues/2048#issuecomment-77159983
-vim.cmd [[nnoremap <BS> <C-w>h]]
-vim.cmd [[nnoremap <C-h> <C-w>h]]
+vim.api.nvim_set_keymap("n", "<BS>", "<C-w>h", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
 
 -- :W = :w
 vim.cmd [[command W w]]
