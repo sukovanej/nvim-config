@@ -56,3 +56,5 @@ vim.cmd [[nnoremap <silent> <space>gs <cmd>lua require("neogit").open({ kind = "
 -- Toggleterm
 vim.cmd [[tnoremap <C-q> <cmd>:ToggleTerm<CR>]]
 vim.cmd [[nnoremap <C-q> <cmd>:ToggleTerm<CR>]]
+
+vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", { noremap = true })
