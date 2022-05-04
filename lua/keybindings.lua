@@ -1,11 +1,9 @@
-local lua_cmd = function(cmd)
-  return "<cmd>lua " + cmd + "<cr>"
-end
+local telescope_builtin = require "telescope.builtin"
 
 -- Telescope
-vim.api.nvim_set_keymap("n", "<space><space>", lua_cmd "require('telescope.builtin').find_files()", { noremap = true })
-vim.api.nvim_set_keymap("n", "<space>a", lua_cmd "require('telescope.builtin').live_grep()", { noremap = true })
-vim.api.nvim_set_keymap("n", "<space>b", lua_cmd "require('telescope.builtin').buffers()", { noremap = true })
+vim.keymap.set("n", "<space><space>", telescope_builtin.find_files)
+vim.keymap.set("n", "<space>a", telescope_builtin.live_grep)
+vim.keymap.set("n", "<space>b", telescope_builtin.buffers)
 
 -- clean selection
 vim.api.nvim_set_keymap("n", "<C-c><C-c>", ":noh<cr>", { noremap = true })
@@ -36,25 +34,24 @@ vim.cmd [[nnoremap gC :BufOnly<cr>]]
 -- Terminal
 vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
--- LSP
-vim.cmd [[nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>]]
-vim.cmd [[nnoremap <silent> <space>f <cmd>lua vim.lsp.buf.formatting()<CR>]]
-vim.cmd [[nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>]]
-vim.cmd [[nnoremap <silent> C-K <cmd>lua vim.lsp.buf.signature_help()<CR>]]
-vim.cmd [[nnoremap <silent> gR <cmd>lua vim.lsp.buf.rename()<CR>]]
-vim.cmd [[nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>>]]
-vim.cmd [[nnoremap <silent> <space>ca <cmd>lua vim.lsp.buf.code_action()<CR>]]
-vim.cmd [[nnoremap <silent> <space>e <cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>]]
+local open_diagnostics = function()
+  vim.diagnostic.open_float(0, { scope = "line" })
+end
 
--- LSP code diagnostics
-vim.cmd [[nnoremap <silent> [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>]]
-vim.cmd [[nnoremap <silent> ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>]]
+-- LSP
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
+vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, { silent = true })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })
+vim.keymap.set("n", "C-K", vim.lsp.buf.signature_help, { silent = true })
+vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })
+vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { silent = true })
+vim.keymap.set("n", "<space>e", open_diagnostics, { silent = true })
 
 -- Git
 vim.cmd [[nnoremap <silent> <space>gr <cmd>Gitsigns reset_hunk<CR>]]
 vim.cmd [[vnoremap <silent> <space>gr <cmd>'<,'>Gitsigns reset_hunk<CR>]]
 vim.cmd [[nnoremap <silent> <space>gs <cmd>lua require("neogit").open({ kind = "split" })<CR>]]
-vim.cmd [[nnoremap <silent> <space>gc <cmd>Neogit commit<CR>]]
 
 -- Toggleterm
 vim.cmd [[tnoremap <C-q> <cmd>:ToggleTerm<CR>]]
