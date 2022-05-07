@@ -23,7 +23,7 @@ vim.cmd [[command Wq wq]]
 vim.cmd [[command Wqa wqa]]
 
 -- Basic buffer key bindings
-vim.cmd [[nnoremap gc :bdelete<cr>]]
+vim.cmd [[nnoremap gc :Bdelete<cr>]]
 vim.cmd [[nnoremap gn :bn<cr>]]
 vim.cmd [[nnoremap gN :bp<cr>]]
 
