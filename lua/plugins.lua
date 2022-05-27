@@ -67,9 +67,6 @@ return require("packer").startup(function(use)
   -- Toggleterm
   use { "akinsho/toggleterm.nvim" }
 
-  -- File explorer
-  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
-
   -- Better buffer delete
   use 'famiu/bufdelete.nvim'
 end)
