@@ -6,4 +6,5 @@ require("nvim-treesitter.configs").setup {
   rainbow = { enable = true },
   autotag = { enable = true },
   context_commentstring = { enable = true },
+  ignore_install = { "phpdoc" },
 }
