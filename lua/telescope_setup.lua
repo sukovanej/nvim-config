@@ -4,6 +4,7 @@ require("telescope").setup {
       ".stack%-work",
       ".git",
       "./.yarn/releases/",
+      "dist%-newstyle",
     },
   },
   pickers = {

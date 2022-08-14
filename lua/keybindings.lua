@@ -44,7 +44,7 @@ vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, { silent = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "C-K", vim.lsp.buf.signature_help, { silent = true })
 vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { silent = true })
+vim.keymap.set("n", "gr", telescope_builtin.lsp_references, { silent = true })
 vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { silent = true })
 vim.keymap.set("n", "<space>e", open_diagnostics, { silent = true })
 
