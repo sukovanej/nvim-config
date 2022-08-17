@@ -18,8 +18,9 @@ return require("packer").startup(function(use)
   use "EdenEast/nightfox.nvim"
 
   -- Lsp
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
   use "jose-elias-alvarez/null-ls.nvim"
 
   -- Lualine
@@ -68,5 +69,5 @@ return require("packer").startup(function(use)
   use { "akinsho/toggleterm.nvim" }
 
   -- Better buffer delete
-  use 'famiu/bufdelete.nvim'
+  use "famiu/bufdelete.nvim"
 end)

@@ -1,4 +1,7 @@
-local lsp_installer = require "nvim-lsp-installer"
+require("mason").setup()
+local mason_lspconfig = require "mason-lspconfig"
+mason_lspconfig.setup()
+local lspconfig = require "lspconfig"
 
 -- protocol.CompletionItemKind = completion_icons.completion_icons
 
@@ -6,40 +9,42 @@ local lsp_installer = require "nvim-lsp-installer"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-lsp_installer.on_server_ready(function(server)
-  local opts = {
-    -- on_attach = completion.on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = capabilities,
-  }
-
-  if server.name == "sumneko_lua" then
-    opts.settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
+mason_lspconfig.setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function(server_name) -- default handler (optional)
+    lspconfig[server_name].setup {
+      flags = {
+        debounce_text_changes = 150,
+      },
+      capabilities = capabilities,
+    }
+  end,
+  ["tsserver"] = function()
+    lspconfig.tsserver.setup {
+      on_attach = function(client, _)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end,
+    }
+  end,
+  ["sumneko_lua"] = function()
+    lspconfig.sumneko_lua.setup {
+      on_attach = function(client, _)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
         },
       },
     }
-    opts.on_attach = function(client, _)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-    end
-  elseif server.name == "pyright" then
-    -- nothing
-  elseif server.name == "tsserver" then
-    -- for tsserver use formatting capability from the null-ls instead
-    opts.on_attach = function(client, _)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-    end
-  end
-
-  server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
-end)
+  end,
+}
 
 local null_ls = require "null-ls"
 null_ls.setup {
