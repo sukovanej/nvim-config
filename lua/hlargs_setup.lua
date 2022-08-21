@@ -1,3 +1,3 @@
-require('hlargs').setup {
+require("hlargs").setup {
   color = "#ffc573",
 }
