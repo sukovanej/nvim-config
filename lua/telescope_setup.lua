@@ -5,6 +5,10 @@ require("telescope").setup {
       ".git",
       "./.yarn/releases/",
       "dist%-newstyle",
+      ".venv",
+      ".mypy_cache",
+      ".pytest_cache",
+      "__pycache__",
     },
   },
   pickers = {
