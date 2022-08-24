@@ -9,6 +9,7 @@ require("telescope").setup {
       ".mypy_cache",
       ".pytest_cache",
       "__pycache__",
+      "node_modules",
     },
   },
   pickers = {
