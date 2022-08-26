@@ -70,4 +70,7 @@ return require("packer").startup(function(use)
 
   -- Better buffer delete
   use "famiu/bufdelete.nvim"
+
+  -- Better looking core UI
+  use "stevearc/dressing.nvim"
 end)
