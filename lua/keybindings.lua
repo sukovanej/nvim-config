@@ -58,3 +58,9 @@ vim.cmd [[tnoremap <C-q> <cmd>:ToggleTerm<CR>]]
 vim.cmd [[nnoremap <C-q> <cmd>:ToggleTerm<CR>]]
 
 vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", { noremap = true })
+
+-- Easy motion (hop.nvim)
+vim.api.nvim_set_keymap("", ";", "<cmd>lua require'hop'.hint_char1()<cr>", {})
+
+-- Make d yank to the black hole register
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
