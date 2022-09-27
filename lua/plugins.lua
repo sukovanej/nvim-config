@@ -73,7 +73,4 @@ return require("packer").startup(function(use)
 
   -- Better looking core UI
   use "stevearc/dressing.nvim"
-
-  -- easy motion
-  use { "phaazon/hop.nvim", branch = "v2" }
 end)

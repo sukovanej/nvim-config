@@ -1,3 +1,3 @@
 require("hlargs").setup {
-  color = "#ffc573",
+  color = "#E670B3",
 }
