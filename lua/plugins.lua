@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
   use "hashivim/vim-terraform"
 
   -- Theme
-  use "EdenEast/nightfox.nvim"
+  use "folke/tokyonight.nvim"
 
   -- Lsp
   use "williamboman/mason.nvim"

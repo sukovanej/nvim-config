@@ -11,7 +11,7 @@ require("tabline").setup {
 
 require("lualine").setup {
   options = {
-    theme = "auto",
+    theme = "tokyonight",
   },
   sections = {
     lualine_c = {
@@ -32,5 +32,5 @@ require("lualine").setup {
 vim.cmd [[syntax on]]
 vim.cmd [[syntax enable]]
 
--- Nightfox
-vim.cmd [[colorscheme nightfox]]
+-- Tokyonight
+vim.cmd [[colorscheme tokyonight-moon]]
