@@ -67,3 +67,6 @@ endif
 vim.opt_global.shortmess:remove "F"
 
 vim.cmd [[set laststatus=3]]
+
+-- hide command bar by default
+vim.o.ch = 0
