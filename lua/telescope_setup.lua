@@ -12,16 +12,4 @@ require("telescope").setup {
       "node_modules",
     },
   },
-  pickers = {
-    find_files = {
-      theme = "dropdown",
-      hidden = true,
-    },
-    buffers = {
-      theme = "dropdown",
-    },
-    live_grep = {
-      theme = "dropdown",
-    },
-  },
 }
