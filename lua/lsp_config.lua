@@ -24,16 +24,16 @@ mason_lspconfig.setup_handlers {
   ["tsserver"] = function()
     lspconfig.tsserver.setup {
       on_attach = function(client, _)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
       end,
     }
   end,
   ["sumneko_lua"] = function()
     lspconfig.sumneko_lua.setup {
       on_attach = function(client, _)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
       end,
       settings = {
         Lua = {
@@ -58,7 +58,7 @@ null_ls.setup {
     null_ls.builtins.formatting.eslint,
   },
   -- on_attach = function(client)
-  --   if client.resolved_capabilities.document_formatting then
+  --   if client.server_capabilities.document_formatting then
   --     vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
   --   end
   -- end,
