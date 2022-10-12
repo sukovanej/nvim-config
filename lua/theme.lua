@@ -1,14 +1,5 @@
 vim.cmd [[set t_Co=256]]
 
-require("tabline").setup {
-  enable = false,
-  options = {
-    show_filename_only = false,
-    modified_icon = "+ ",
-    modified_italic = true,
-  },
-}
-
 require("lualine").setup {
   options = {
     theme = "tokyonight",
@@ -22,9 +13,21 @@ require("lualine").setup {
       },
     },
   },
-  tabline = {
-    lualine_c = { require("tabline").tabline_buffers },
-    lualine_x = { require("tabline").tabline_tabs },
+  winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
+  inactive_winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
 }
 
