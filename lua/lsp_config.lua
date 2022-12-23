@@ -24,8 +24,8 @@ mason_lspconfig.setup_handlers {
   ["tsserver"] = function()
     lspconfig.tsserver.setup {
       on_attach = function(client, _)
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
       end,
     }
   end,
@@ -55,7 +55,7 @@ null_ls.setup {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.formatting.eslint,
+    null_ls.builtins.formatting.prettier,
   },
   -- on_attach = function(client)
   --   if client.server_capabilities.document_formatting then
