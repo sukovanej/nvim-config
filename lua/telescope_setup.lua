@@ -11,5 +11,8 @@ require("telescope").setup {
       "__pycache__",
       "node_modules",
     },
+    path_display = {
+      "truncate",
+    },
   },
 }

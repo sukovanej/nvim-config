@@ -73,4 +73,7 @@ return require("packer").startup(function(use)
 
   -- Better looking core UI
   use "stevearc/dressing.nvim"
+
+  -- Milan
+  use 'eandrju/cellular-automaton.nvim' 
 end)
