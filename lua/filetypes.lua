@@ -10,6 +10,7 @@ vim.g.indentLine_conceallevel = 0
 vim.cmd [[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab]]
 
 -- Typescript + Javascript
+vim.cmd [[au BufNewFile,BufRead *.css setlocal filetype=css]]
 vim.cmd [[au BufNewFile,BufRead *.scss setlocal filetype=sass]]
 vim.cmd [[au BufNewFile,BufRead *.ts setlocal filetype=typescript]]
 vim.cmd [[au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx]]
@@ -23,8 +24,9 @@ vim.cmd [[autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab]]
 -- Vue
 vim.cmd [[autocmd FileType vue setlocal ts=2 sts=2 sw=2 expandtab]]
 
--- Sass
+-- Sass / css
 vim.cmd [[autocmd FileType sass setlocal ts=2 sts=2 sw=2 expandtab]]
+vim.cmd [[autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab]]
 
 -- HTML
 vim.cmd [[autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab]]
@@ -39,3 +41,9 @@ vim.cmd [[au BufNewFile,BufRead *.conf.local setlocal filetype=conf]]
 
 -- Lua
 vim.cmd [[autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab]]
+
+-- Markdown
+vim.cmd [[au BufNewFile,BufRead *.MD setlocal filetype=markdown]]
+
+-- .env
+vim.cmd [[au BufNewFile,BufRead *.env.* setlocal filetype=sh]]
