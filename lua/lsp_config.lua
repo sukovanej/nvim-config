@@ -29,21 +29,6 @@ mason_lspconfig.setup_handlers {
       end,
     }
   end,
-  ["sumneko_lua"] = function()
-    lspconfig.sumneko_lua.setup {
-      on_attach = function(client, _)
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-      end,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-        },
-      },
-    }
-  end,
 }
 
 local null_ls = require "null-ls"
@@ -57,9 +42,4 @@ null_ls.setup {
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.formatting.prettier,
   },
-  -- on_attach = function(client)
-  --   if client.server_capabilities.document_formatting then
-  --     vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-  --   end
-  -- end,
 }

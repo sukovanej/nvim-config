@@ -75,5 +75,5 @@ return require("packer").startup(function(use)
   use "stevearc/dressing.nvim"
 
   -- Milan
-  use 'eandrju/cellular-automaton.nvim' 
+  use "eandrju/cellular-automaton.nvim"
 end)
