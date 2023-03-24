@@ -45,8 +45,10 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "C-K", vim.lsp.buf.signature_help, { silent = true })
 vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true })
 vim.keymap.set("n", "gr", telescope_builtin.lsp_references, { silent = true })
+vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true })
 vim.keymap.set("n", "<space>.", vim.lsp.buf.code_action, { silent = true })
 vim.keymap.set("n", "<space>e", open_diagnostics, { silent = true })
+vim.keymap.set("n", "<space>D", telescope_builtin.diagnostics, { silent = true })
 
 -- Git
 vim.cmd [[nnoremap <silent> <space>gr <cmd>Gitsigns reset_hunk<CR>]]
