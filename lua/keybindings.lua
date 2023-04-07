@@ -40,7 +40,7 @@ end
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
-vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, { silent = true })
+vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { silent = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "C-K", vim.lsp.buf.signature_help, { silent = true })
 vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true })
