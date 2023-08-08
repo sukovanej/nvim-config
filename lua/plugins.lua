@@ -41,8 +41,6 @@ return require("packer").startup(function(use)
   -- Syntax highlight
   use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow"
-  use { "m-demare/hlargs.nvim", requires = { "nvim-treesitter/nvim-treesitter" } }
 
   -- Icons
   use "kyazdani42/nvim-web-devicons"
@@ -62,13 +60,11 @@ return require("packer").startup(function(use)
   -- Rust
   use "simrat39/rust-tools.nvim"
 
-  -- Scala
-  use { "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } }
-
   -- Toggleterm
   use { "akinsho/toggleterm.nvim" }
 
   -- Better buffer delete
+  -- TODO: remove
   use "famiu/bufdelete.nvim"
 
   -- Better looking core UI
@@ -76,4 +72,9 @@ return require("packer").startup(function(use)
 
   -- Milan
   use "eandrju/cellular-automaton.nvim"
+
+  -- Copilot
+  -- use "github/copilot.vim"
+
+  use "NoahTheDuke/vim-just"
 end)

@@ -39,7 +39,7 @@ local open_diagnostics = function()
 end
 
 -- LSP
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
+vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, { silent = true })
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { silent = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "C-K", vim.lsp.buf.signature_help, { silent = true })

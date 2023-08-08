@@ -12,14 +12,14 @@ vim.cmd [[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab]]
 -- Typescript + Javascript
 vim.cmd [[au BufNewFile,BufRead *.css setlocal filetype=css]]
 vim.cmd [[au BufNewFile,BufRead *.scss setlocal filetype=sass]]
-vim.cmd [[au BufNewFile,BufRead *.ts setlocal filetype=typescript]]
-vim.cmd [[au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx]]
 vim.cmd [[au BufNewFile,BufRead .babelrc setlocal filetype=json]]
 vim.cmd [[au BufNewFile,BufRead .eslintrc setlocal filetype=json]]
+
 vim.cmd [[autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab]]
 vim.cmd [[autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab]]
-vim.cmd [[autocmd FileType typescript.tsx setlocal ts=2 sts=2 sw=2 expandtab]]
+vim.cmd [[autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab]]
 vim.cmd [[autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab]]
+-- vim.cmd [[autocmd FileType jsonc setlocal ts=2 sts=2 sw=2 expandtab]]
 
 -- Vue
 vim.cmd [[autocmd FileType vue setlocal ts=2 sts=2 sw=2 expandtab]]

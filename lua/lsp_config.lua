@@ -3,8 +3,6 @@ local mason_lspconfig = require "mason-lspconfig"
 mason_lspconfig.setup()
 local lspconfig = require "lspconfig"
 
--- protocol.CompletionItemKind = completion_icons.completion_icons
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -37,9 +35,7 @@ null_ls.setup {
     null_ls.builtins.formatting.stylua.with {
       extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/stylua.toml" },
     },
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
     null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettierd,
   },
 }
