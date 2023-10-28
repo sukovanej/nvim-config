@@ -74,7 +74,7 @@ return require("packer").startup(function(use)
   use "eandrju/cellular-automaton.nvim"
 
   -- Copilot
-  -- use "github/copilot.vim"
+  use "github/copilot.vim"
 
   use "NoahTheDuke/vim-just"
 end)
