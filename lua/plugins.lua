@@ -1,80 +1,46 @@
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-return require("packer").startup(function(use)
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
-
-  -- tmux navigation
-  use "christoomey/vim-tmux-navigator"
-
-  -- vim-surround + repeat
-  use "tpope/vim-surround"
-  use "tpope/vim-repeat"
-
-  -- Terraform
-  use "hashivim/vim-terraform"
-
-  -- Theme
-  use "folke/tokyonight.nvim"
-
-  -- Lsp
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "neovim/nvim-lspconfig"
-  use "jose-elias-alvarez/null-ls.nvim"
-
-  -- Lualine
-  use "nvim-lualine/lualine.nvim"
-
-  -- Tabline
-  use {
-    "kdheepak/tabline.nvim",
-    requires = { "nvim-lualine/lualine.nvim", "kyazdani42/nvim-web-devicons" },
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   }
+end
 
-  -- Telescope
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  }
+vim.opt.rtp:prepend(lazypath)
 
-  -- Syntax highlight
-  use "nvim-treesitter/nvim-treesitter"
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+local plugins = {
+  "christoomey/vim-tmux-navigator",
+  "tpope/vim-surround",
+  "tpope/vim-repeat",
+  "hashivim/vim-terraform",
+  require "tokyonight_setup",
+  require "lsp_config_setup",
+  require "cmp_setup",
+  require "lualine_setup",
+  require "tabline_setup",
+  require "telescope_setup",
+  require "tree_sitter_setup",
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  {
+    "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup {}
+    end,
+  },
+  require "rust_tools_setup",
+  require "neogit_setup",
+  require "gitsigns_setup",
+  require "toggleterm_setup",
+  "famiu/bufdelete.nvim",
+  "stevearc/dressing.nvim",
+  "eandrju/cellular-automaton.nvim",
+  "github/copilot.vim",
+  "NoahTheDuke/vim-just",
+}
 
-  -- Icons
-  use "kyazdani42/nvim-web-devicons"
-
-  -- Completion
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "onsails/lspkind-nvim"
-  use "saadparwaiz1/cmp_luasnip"
-  use "L3MON4D3/LuaSnip"
-
-  -- Git
-  use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
-  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
-  use "lewis6991/gitsigns.nvim"
-
-  -- Rust
-  use "simrat39/rust-tools.nvim"
-
-  -- Toggleterm
-  use { "akinsho/toggleterm.nvim" }
-
-  -- Better buffer delete
-  -- TODO: remove
-  use "famiu/bufdelete.nvim"
-
-  -- Better looking core UI
-  use "stevearc/dressing.nvim"
-
-  -- Milan
-  use "eandrju/cellular-automaton.nvim"
-
-  -- Copilot
-  use "github/copilot.vim"
-
-  use "NoahTheDuke/vim-just"
-end)
+require("lazy").setup(plugins)

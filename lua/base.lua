@@ -70,3 +70,8 @@ vim.cmd [[set laststatus=3]]
 
 -- hide command bar by default
 vim.o.ch = 0
+
+-- Theme
+vim.cmd [[set t_Co=256]]
+vim.cmd [[syntax on]]
+vim.cmd [[syntax enable]]
