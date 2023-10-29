@@ -14,7 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  "christoomey/vim-tmux-navigator",
   "tpope/vim-surround",
   "tpope/vim-repeat",
   "hashivim/vim-terraform",
