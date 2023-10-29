@@ -1,6 +1,6 @@
 local rust_tools_setup = { "simrat39/rust-tools.nvim" }
 
-rust_tools_setup.dependencies = { "onsails/lspkind-nvim", "saadparwaiz1/cmp_luasnip", "L3MON4D3/LuaSnip" }
+rust_tools_setup.dependencies = {}
 
 function rust_tools_setup.config()
   require("rust-tools").setup {
