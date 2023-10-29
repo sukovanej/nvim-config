@@ -26,12 +26,7 @@ local plugins = {
   require "telescope_setup",
   require "tree_sitter_setup",
   "JoosepAlviste/nvim-ts-context-commentstring",
-  {
-    "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup {}
-    end,
-  },
+  require "devicons_setup",
   require "rust_tools_setup",
   require "neogit_setup",
   require "gitsigns_setup",
@@ -44,3 +39,5 @@ local plugins = {
 }
 
 require("lazy").setup(plugins)
+
+vim.cmd [[colorscheme tokyonight-moon]]

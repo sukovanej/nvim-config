@@ -1,4 +1,4 @@
-cmp_setup = { "hrsh7th/nvim-cmp" }
+local cmp_setup = { "hrsh7th/nvim-cmp" }
 
 cmp_setup.dependencies = {
   "hrsh7th/cmp-nvim-lsp",
@@ -9,11 +9,9 @@ cmp_setup.dependencies = {
 
 function cmp_setup.config()
   local lspkind = require "lspkind"
-  local cmp = require "cmp"
-
-  vim.o.completeopt = "menuone,noselect"
-
   local luasnip = require "luasnip"
+
+  local cmp = require "cmp"
 
   cmp.setup {
     snippet = {
@@ -43,6 +41,12 @@ function cmp_setup.config()
       format = lspkind.cmp_format { with_text = false, maxwidth = 50 },
     },
   }
+  -- cmp.setup.cmdline({ "/", "?" }, {
+  --   mapping = cmp.mapping.preset.cmdline(),
+  --   sources = {
+  --     { name = "buffer" },
+  --   },
+  -- })
 end
 
 return cmp_setup

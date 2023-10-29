@@ -1,6 +1,6 @@
 local tree_sitter_setup = { "nvim-treesitter/nvim-treesitter" }
 
-tree_sitter_setup.version = false
+tree_sitter_setup.lazy = false
 tree_sitter_setup.build = ":TSUpdate"
 tree_sitter_setup.event = { "VeryLazy" }
 tree_sitter_setup.init = function(plugin)

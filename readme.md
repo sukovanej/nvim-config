@@ -12,8 +12,6 @@
 ## Installation
 
  - install Nerd font - https://github.com/ryanoasis/nerd-fonts
- - install packer.vim - https://github.com/wbthomason/packer.nvim
- - run `:PackerCompile` + `:PackerInstall`
  - TreeSitter update should happen automatically after the initial installation but you can trigger it with `:TSUpdate`
 
 ## Installing languages LSP

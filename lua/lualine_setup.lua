@@ -3,7 +3,7 @@ local lualine_setup = { "nvim-lualine/lualine.nvim" }
 lualine_setup.dependencies = { "kdheepak/tabline.nvim", "folke/tokyonight.nvim" }
 
 function lualine_setup.config()
-  tabline = require "tabline"
+  local tabline = require "tabline"
 
   require("lualine").setup {
     options = {
