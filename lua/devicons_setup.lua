@@ -1,7 +1,9 @@
 local devicons_setup = { "kyazdani42/nvim-web-devicons" }
 
-function devicons_setup.config()
-  require("nvim-web-devicons").setup {}
+devicons_setup.opts = {}
+
+function devicons_setup.config(_, opts)
+  require("nvim-web-devicons").setup(opts)
 end
 
 return devicons_setup

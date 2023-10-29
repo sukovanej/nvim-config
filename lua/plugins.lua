@@ -22,7 +22,6 @@ local plugins = {
   require "lsp_config_setup",
   require "cmp_setup",
   require "lualine_setup",
-  require "tabline_setup",
   require "telescope_setup",
   require "tree_sitter_setup",
   "JoosepAlviste/nvim-ts-context-commentstring",
