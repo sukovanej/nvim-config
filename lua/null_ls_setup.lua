@@ -1,6 +1,6 @@
-local lsp_config_setup = { "jose-elias-alvarez/null-ls.nvim" }
+local null_ls_setup = { "jose-elias-alvarez/null-ls.nvim" }
 
-function lsp_config_setup.config()
+function null_ls_setup.config()
   local null_ls = require "null-ls"
   null_ls.setup {
     sources = {
@@ -14,4 +14,4 @@ function lsp_config_setup.config()
   }
 end
 
-return lsp_config_setup
+return null_ls_setup

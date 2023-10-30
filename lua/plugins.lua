@@ -20,6 +20,7 @@ local plugins = {
   require "tokyonight_setup",
   require "lsp_config_setup",
   require "null_ls_setup",
+  require "mason_setup",
   require "cmp_setup",
   require "lualine_setup",
   require "telescope_setup",

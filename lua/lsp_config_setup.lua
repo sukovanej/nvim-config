@@ -3,14 +3,11 @@ local lsp_config_setup = { "neovim/nvim-lspconfig" }
 lsp_config_setup.dependencies = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
+  "hrsh7th/cmp-nvim-lsp",
 }
 
 function lsp_config_setup.config()
-  require("mason").setup()
   local mason_lspconfig = require "mason-lspconfig"
-  mason_lspconfig.setup()
-
   local lspconfig = require "lspconfig"
 
   -- Add additional capabilities supported by nvim-cmp
