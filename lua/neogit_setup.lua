@@ -10,7 +10,7 @@ neogit_setup.dependencies = {
 neogit_setup.opts = {}
 
 function neogit_setup.config(_, opts)
-  local neogit = require("neogit")
+  local neogit = require "neogit"
 
   neogit.setup(opts)
 
