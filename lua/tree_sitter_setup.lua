@@ -26,7 +26,6 @@ tree_sitter_setup.opts = {
   -- indent = { enable = true },
   rainbow = { enable = true },
   autotag = { enable = true },
-  context_commentstring = { enable = true },
   ignore_install = { "phpdoc" },
   incremental_selection = {
     enable = true,

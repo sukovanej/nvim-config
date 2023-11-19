@@ -25,7 +25,6 @@ local plugins = {
   require "lualine_setup",
   require "telescope_setup",
   require "tree_sitter_setup",
-  "JoosepAlviste/nvim-ts-context-commentstring",
   require "devicons_setup",
   require "rust_tools_setup",
   require "neogit_setup",

@@ -8,8 +8,10 @@ cmp_setup.dependencies = {
 }
 
 function cmp_setup.config()
-  local lspkind = require "lspkind"
   local cmp = require "cmp"
+  vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+  local lspkind = require "lspkind"
 
   cmp.setup {
     mapping = {

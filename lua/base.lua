@@ -75,5 +75,3 @@ vim.o.ch = 0
 vim.cmd [[set t_Co=256]]
 vim.cmd [[syntax on]]
 vim.cmd [[syntax enable]]
-
-vim.o.completeopt = "menuone,noselect"
