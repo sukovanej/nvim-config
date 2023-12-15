@@ -32,7 +32,6 @@ local plugins = {
   require "toggleterm_setup",
   "famiu/bufdelete.nvim",
   "stevearc/dressing.nvim",
-  "eandrju/cellular-automaton.nvim",
   "github/copilot.vim",
   "NoahTheDuke/vim-just",
 }

@@ -35,13 +35,6 @@ function cmp_setup.config()
       format = lspkind.cmp_format { with_text = false, maxwidth = 50 },
     },
   }
-
-  cmp.setup.cmdline({ "/", "?" }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = "buffer" },
-    },
-  })
 end
 
 return cmp_setup
