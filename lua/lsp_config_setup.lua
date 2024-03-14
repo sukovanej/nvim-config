@@ -29,12 +29,42 @@ function lsp_config_setup.config()
     ["tsserver"] = function()
       lspconfig.tsserver.setup {
         on_attach = function(client, _)
-          client.server_capabilities.documentFormattingProvider = false
-          client.server_capabilities.documentRangeFormattingProvider = false
+          client.server_capabilities.documentformattingprovider = false
+          client.server_capabilities.documentrangeformattingprovider = false
         end,
       }
     end,
   }
+
+  lspconfig.eslint.setup {
+    filetypes = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "vue",
+      "svelte",
+      "astro",
+      "json",
+    },
+    on_attach = function(_, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+    end,
+  }
+
+  -- lspconfig.ruff_lsp.setup({
+  --   on_attach = function(_, bufnr)
+  --     vim.api.nvim_create_autocmd("BufWritePre", {
+  --       buffer = bufnr,
+  --       command = "EslintFixAll",
+  --     })
+  --   end,
+  -- })
 end
 
 return lsp_config_setup

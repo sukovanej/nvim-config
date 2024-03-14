@@ -7,6 +7,9 @@ mason_setup.dependencies = {
 function mason_setup.config()
   require("mason").setup()
   require("mason-lspconfig").setup()
+  require("mason-nvim-dap").setup()
+
+  -- vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 end
 
 return mason_setup

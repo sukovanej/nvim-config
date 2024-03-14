@@ -31,9 +31,12 @@ local plugins = {
   require "gitsigns_setup",
   require "toggleterm_setup",
   "famiu/bufdelete.nvim",
-  "stevearc/dressing.nvim",
   "github/copilot.vim",
   "NoahTheDuke/vim-just",
+  "mfussenegger/nvim-dap",
+  "jay-babu/mason-nvim-dap.nvim",
+  'HiPhish/debugpy.nvim',
+  require "nvim_dap",
 }
 
 require("lazy").setup(plugins)

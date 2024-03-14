@@ -8,7 +8,6 @@ function null_ls_setup.config()
         extra_args = { "--config-path", vim.fn.expand "~/.config/nvim/stylua.toml" },
       },
       null_ls.builtins.code_actions.gitsigns,
-      null_ls.builtins.formatting.prettierd,
     },
   }
 end
