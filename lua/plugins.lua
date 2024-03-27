@@ -35,7 +35,7 @@ local plugins = {
   "NoahTheDuke/vim-just",
   "mfussenegger/nvim-dap",
   "jay-babu/mason-nvim-dap.nvim",
-  'HiPhish/debugpy.nvim',
+  "HiPhish/debugpy.nvim",
   require "nvim_dap",
 }
 

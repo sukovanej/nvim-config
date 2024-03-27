@@ -4,6 +4,10 @@ dap_setup.requires = {
   "mfussenegger/nvim-dap",
 }
 
+dap_setup.dependencies = {
+  "nvim-neotest/nvim-nio",
+}
+
 dap_setup.opts = {}
 
 function dap_setup.config(_, opts)
@@ -12,8 +16,12 @@ function dap_setup.config(_, opts)
   require("dapui").setup()
 
   -- Dap
-  vim.keymap.set("n", "<space>\'", function() dap.toggle_breakpoint() end, { silent = true })
-  vim.keymap.set("n", "<space>\"", function() dap_ui.toggle() end, { silent = true })
+  vim.keymap.set("n", "<space>'", function()
+    dap.toggle_breakpoint()
+  end, { silent = true })
+  vim.keymap.set("n", '<space>"', function()
+    dap_ui.toggle()
+  end, { silent = true })
 end
 
 return dap_setup
