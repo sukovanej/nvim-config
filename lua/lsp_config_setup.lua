@@ -26,8 +26,8 @@ function lsp_config_setup.config()
         capabilities = capabilities,
       }
     end,
-    ["tsserver"] = function()
-      lspconfig.tsserver.setup {
+    ["ts_ls"] = function()
+      lspconfig.ts_ls.setup {
         on_attach = function(client, _)
           client.server_capabilities.documentformattingprovider = false
           client.server_capabilities.documentrangeformattingprovider = false
