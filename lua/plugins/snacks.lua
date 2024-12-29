@@ -34,7 +34,6 @@ setup.keys = {
     "gc",
     function()
       Snacks.bufdelete()
-      vim.cmd "<CR>"
     end,
     desc = "Delete buffer",
   },
