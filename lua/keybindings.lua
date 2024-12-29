@@ -16,16 +16,8 @@ vim.cmd [[command Wq wq]]
 vim.cmd [[command Wqa wqa]]
 
 -- Basic buffer key bindings
-vim.cmd [[nnoremap gc :Bdelete<cr>]]
 vim.cmd [[nnoremap gn :bn<cr>]]
 vim.cmd [[nnoremap gN :bp<cr>]]
-
--- Delete all buffers but the current
-vim.cmd [[command! BufOnly execute '%bdelete|edit #|normal `"']]
-vim.cmd [[nnoremap gC :BufOnly<cr>]]
-
--- Terminal
-vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
 local open_diagnostics = function()
   vim.diagnostic.open_float(0, { scope = "line" })
@@ -39,13 +31,3 @@ vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true })
 vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true })
 vim.keymap.set("n", "<space>.", vim.lsp.buf.code_action, { silent = true })
 vim.keymap.set("n", "<space>e", open_diagnostics, { silent = true })
-
--- Git
-vim.cmd [[nnoremap <silent> <space>gr <cmd>Gitsigns reset_hunk<CR>]]
-vim.cmd [[vnoremap <silent> <space>gr <cmd>'<,'>Gitsigns reset_hunk<CR>]]
-
--- Toggleterm
-vim.cmd [[tnoremap <C-q> <cmd>:ToggleTerm<CR>]]
-vim.cmd [[nnoremap <C-q> <cmd>:ToggleTerm<CR>]]
-
-vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", { noremap = true })

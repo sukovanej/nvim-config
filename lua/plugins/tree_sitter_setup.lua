@@ -1,9 +1,9 @@
-local tree_sitter_setup = { "nvim-treesitter/nvim-treesitter" }
+local setup = { "nvim-treesitter/nvim-treesitter" }
 
-tree_sitter_setup.lazy = false
-tree_sitter_setup.build = ":TSUpdate"
-tree_sitter_setup.event = { "VeryLazy" }
-tree_sitter_setup.init = function(plugin)
+setup.lazy = false
+setup.build = ":TSUpdate"
+setup.event = { "VeryLazy" }
+setup.init = function(plugin)
   -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
   -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
   -- no longer trigger the **nvim-treeitter** module to be loaded in time.
@@ -13,13 +13,13 @@ tree_sitter_setup.init = function(plugin)
   require "nvim-treesitter.query_predicates"
 end
 
-tree_sitter_setup.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
-tree_sitter_setup.keys = {
+setup.cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" }
+setup.keys = {
   { "<C-=>", desc = "Increment selection" },
   { "<c-->", desc = "Decrement selection", mode = "x" },
 }
 
-tree_sitter_setup.opts = {
+setup.opts = {
   highlight = { enable = true },
   ensure_installed = "all",
   -- indent doesn't work well for me for Python
@@ -38,8 +38,8 @@ tree_sitter_setup.opts = {
   },
 }
 
-tree_sitter_setup.config = function(_, opts)
+setup.config = function(_, opts)
   require("nvim-treesitter.configs").setup(opts)
 end
 
-return tree_sitter_setup
+return setup

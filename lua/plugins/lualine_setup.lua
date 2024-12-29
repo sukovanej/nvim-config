@@ -1,16 +1,16 @@
-local lualine_setup = { "nvim-lualine/lualine.nvim" }
+local setup = { "nvim-lualine/lualine.nvim" }
 
-lualine_setup.dependencies = {
+setup.dependencies = {
   "folke/tokyonight.nvim",
   "nvim-tree/nvim-web-devicons",
 }
 
-lualine_setup.lazy = false
+setup.lazy = false
 
-lualine_setup.opts = {
-  options = {
-    theme = "tokyonight",
-  },
+setup.opts = {
+  --options = {
+  --  theme = "tokyonight",
+  --},
   sections = {
     lualine_c = {
       {
@@ -42,8 +42,8 @@ lualine_setup.opts = {
   },
 }
 
-function lualine_setup.config(_, opts)
+function setup.config(_, opts)
   require("lualine").setup(opts)
 end
 
-return lualine_setup
+return setup

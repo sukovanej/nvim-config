@@ -1,5 +1,1 @@
-require "base"
-require "filetypes"
-require "hard_mode"
-require "keybindings"
-require "plugins"
+require "config.lazy"

@@ -1,29 +1,26 @@
-local lsp_config_setup = { "neovim/nvim-lspconfig" }
+local setup = { "neovim/nvim-lspconfig" }
 
-lsp_config_setup.dependencies = {
+setup.dependencies = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "hrsh7th/cmp-nvim-lsp",
+  "saghen/blink.cmp",
 }
 
-function lsp_config_setup.config()
+function setup.config(_)
   local mason_lspconfig = require "mason-lspconfig"
   local lspconfig = require "lspconfig"
-
-  -- Add additional capabilities supported by nvim-cmp
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+  local blink = require "blink.cmp"
 
   mason_lspconfig.setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
-    function(server_name) -- default handler (optional)
+    function(server_name, config) -- default handler (optional)
       lspconfig[server_name].setup {
         flags = {
           debounce_text_changes = 150,
         },
-        capabilities = capabilities,
+        capabilities = blink.get_lsp_capabilities(),
       }
     end,
     ["ts_ls"] = function()
@@ -56,15 +53,6 @@ function lsp_config_setup.config()
       })
     end,
   }
-
-  -- lspconfig.ruff_lsp.setup({
-  --   on_attach = function(_, bufnr)
-  --     vim.api.nvim_create_autocmd("BufWritePre", {
-  --       buffer = bufnr,
-  --       command = "EslintFixAll",
-  --     })
-  --   end,
-  -- })
 end
 
-return lsp_config_setup
+return setup
