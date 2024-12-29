@@ -59,7 +59,7 @@ setup.keys = {
       Snacks.lazygit()
     end,
     mode = { "n" },
-    desc = "Lazygit"
+    desc = "Lazygit",
   },
   {
     "<space>gl",
@@ -67,7 +67,7 @@ setup.keys = {
       Snacks.lazygit.log()
     end,
     mode = { "n" },
-    desc = "Lazygit"
+    desc = "Lazygit",
   },
 }
 
