@@ -45,7 +45,7 @@ setup.keys = {
     desc = "Delete all but the current buffer",
   },
   {
-    "<C-j>",
+    "<C-t>",
     function()
       Snacks.terminal()
     end,
