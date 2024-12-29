@@ -53,7 +53,7 @@ setup.keys = {
     desc = "Toggle terminal",
   },
   {
-    "<space>gs",
+    "<space>l",
     function()
       Snacks.lazygit()
     end,
@@ -61,7 +61,7 @@ setup.keys = {
     desc = "Lazygit",
   },
   {
-    "<space>gl",
+    "<space>L",
     function()
       Snacks.lazygit.log()
     end,
