@@ -1,7 +1,7 @@
 local setup = { "nvim-lualine/lualine.nvim" }
 
 setup.dependencies = {
-  "folke/tokyonight.nvim",
+  require("plugins.theme").name,
   "nvim-tree/nvim-web-devicons",
 }
 
