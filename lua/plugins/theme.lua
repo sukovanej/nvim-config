@@ -1,12 +1,12 @@
-local setup = { "catppuccin/nvim" }
+local setup = { "EdenEast/nightfox.nvim" }
 
-setup.name = "theme"
+setup.name = "tokyonight"
 setup.lazy = false
-setup.priority = 10000
+setup.priority = 10001
 setup.opts = {}
 
 setup.config = function()
-  vim.cmd.colorscheme "catppuccin-mocha"
+  vim.cmd[[colorscheme Carbonfox]]
 end
 
 return setup

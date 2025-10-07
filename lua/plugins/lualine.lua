@@ -9,6 +9,7 @@ setup.lazy = false
 
 setup.opts = {
   sections = {
+    lualine_a = { "filename" },
     lualine_c = {
       {
         "filename",
@@ -16,6 +17,10 @@ setup.opts = {
         path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
     },
+  },
+  tabline = {
+    lualine_a = { "buffers" },
+    lualine_x = { "tabs" },
   },
   winbar = {
     lualine_c = { "filename" },

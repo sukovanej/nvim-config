@@ -5,9 +5,6 @@ vim.api.nvim_set_keymap("n", "<C-c><C-c>", ":noh<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
-
--- https://github.com/neovim/neovim/issues/2048#issuecomment-77159983
-vim.api.nvim_set_keymap("n", "<BS>", "<C-w>h", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
 
 -- :W = :w
