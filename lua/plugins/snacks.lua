@@ -27,9 +27,11 @@ setup.opts = {
   },
   git = { enabled = true },
   lazygit = { enabled = true },
+  words = { enabled = true },
 }
 
 setup.keys = {
+  -- buffers
   {
     "gc",
     function()
@@ -44,6 +46,7 @@ setup.keys = {
     end,
     desc = "Delete all but the current buffer",
   },
+  -- terminal
   {
     "<C-t>",
     function()
@@ -52,6 +55,15 @@ setup.keys = {
     mode = { "n", "i", "t" },
     desc = "Toggle terminal",
   },
+  {
+    "<space>tn",
+    function()
+      Snacks.terminal.open()
+    end,
+    mode = { "n", "i", "t" },
+    desc = "Toggle terminal",
+  },
+  -- lazy git
   {
     "<space>l",
     function()
@@ -68,6 +80,48 @@ setup.keys = {
     mode = { "n" },
     desc = "Lazygit",
   },
+  -- files
+  {
+    "<space><space>",
+    function()
+      Snacks.picker.files()
+    end,
+    mode = { "n" },
+    desc = "Search in files",
+  },
+  {
+    "<space>b",
+    function()
+      Snacks.picker.buffers()
+    end,
+    mode = { "n" },
+    desc = "Search in buffers",
+  },
+  {
+    "<space>a",
+    function()
+      Snacks.picker.grep()
+    end,
+    mode = { "n" },
+    desc = "Grep",
+  },
+  -- LSP
+  {
+    "gd",
+    function()
+      Snacks.picker.lsp_definitions()
+    end,
+    mode = { "n" },
+    desc = "LSP definitions",
+  },
+  {
+    "gr",
+    function()
+      Snacks.picker.lsp_references()
+    end,
+    mode = { "n" },
+    desc = "Picker files",
+  },
 }
 
 setup.config = function()
@@ -78,10 +132,21 @@ setup.config = function()
         id = "lsp_progress",
         title = "LSP Progress",
         opts = function(notif)
-          notif.icon = ev.data.params.value.kind == "end" and " "
-            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+          notif.icon = ev.data.params.value.kin== "end" and " "
+              or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
         end,
       })
+    end,
+  })
+end
+
+setup.init = function()
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      vim._print = function(_, ...)
+        Snacks.debug.inspect(...)
+      end
     end,
   })
 end
