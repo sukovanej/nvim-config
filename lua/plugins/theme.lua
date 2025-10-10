@@ -6,7 +6,7 @@ setup.priority = 10001
 setup.opts = {}
 
 setup.config = function()
-  vim.cmd[[colorscheme Carbonfox]]
+  vim.cmd [[colorscheme Carbonfox]]
 end
 
 return setup

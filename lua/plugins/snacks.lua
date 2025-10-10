@@ -167,8 +167,8 @@ setup.config = function()
         id = "lsp_progress",
         title = "LSP Progress",
         opts = function(notif)
-          notif.icon = ev.data.params.value.k== "end" and " "
-              or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+          notif.icon = ev.data.params.value.k == "end" and " "
+            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
         end,
       })
     end,

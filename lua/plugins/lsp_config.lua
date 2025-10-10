@@ -33,11 +33,11 @@ function setup.config(_)
   --   end,
   -- }
   require("mason").setup()
-  require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "ty" },
-  })
+  require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "ty" },
+  }
 
-  local lspconfig = require('lspconfig')
+  local lspconfig = require "lspconfig"
   local capabilities = require("blink.cmp").get_lsp_capabilities()
 
   -- require('mason-lspconfig').setup_handlers {

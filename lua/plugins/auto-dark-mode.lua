@@ -14,10 +14,10 @@ setup.config = function()
   auto_dark_mode.setup {
     update_interval = 1000,
     set_dark_mode = function()
-      vim.cmd[[colorscheme Carbonfox]]
+      vim.cmd [[colorscheme Carbonfox]]
     end,
     set_light_mode = function()
-      vim.cmd[[colorscheme Dayfox]]
+      vim.cmd [[colorscheme Dayfox]]
     end,
   }
 end
