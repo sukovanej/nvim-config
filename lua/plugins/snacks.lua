@@ -7,12 +7,7 @@ setup.opts = {
   bufdelete = { enabled = true },
   terminal = { enabled = true },
   modifier = { enabled = true },
-  indent = {
-    enabled = true,
-    animate = {
-      enabled = false,
-    },
-  },
+  indent = { enabled = true },
   statuscolumn = { enabled = true },
   input = {
     enabled = true,
@@ -37,6 +32,7 @@ setup.keys = {
     function()
       Snacks.bufdelete()
     end,
+    mode = { "n" },
     desc = "Delete buffer",
   },
   {
@@ -44,8 +40,10 @@ setup.keys = {
     function()
       Snacks.bufdelete.other()
     end,
+    mode = { "n" },
     desc = "Delete all but the current buffer",
   },
+
   -- terminal
   {
     "<C-t>",
@@ -55,14 +53,7 @@ setup.keys = {
     mode = { "n", "i", "t" },
     desc = "Toggle terminal",
   },
-  {
-    "<space>tn",
-    function()
-      Snacks.terminal.open()
-    end,
-    mode = { "n", "i", "t" },
-    desc = "Toggle terminal",
-  },
+
   -- lazy git
   {
     "<space>l",
@@ -80,7 +71,8 @@ setup.keys = {
     mode = { "n" },
     desc = "Lazygit",
   },
-  -- files
+
+  -- files, buffers, searching
   {
     "<space><space>",
     function()
@@ -105,6 +97,31 @@ setup.keys = {
     mode = { "n" },
     desc = "Grep",
   },
+  {
+    "<C-e>",
+    function()
+      Snacks.explorer { layout = { layout = { position = "right" } } }
+    end,
+    mode = { "n" },
+    desc = "File explorer",
+  },
+  {
+    "<C-f>",
+    function()
+      Snacks.picker.lines()
+    end,
+    mode = { "n" },
+    desc = "File explorer",
+  },
+  {
+    "<space>w",
+    function()
+      Snacks.picker.grep_word()
+    end,
+    mode = { "n" },
+    desc = "Grep current word",
+  },
+
   -- LSP
   {
     "gd",
@@ -120,11 +137,29 @@ setup.keys = {
       Snacks.picker.lsp_references()
     end,
     mode = { "n" },
-    desc = "Picker files",
+    desc = "LSP references",
+  },
+  {
+    "<space>e",
+    function()
+      Snacks.picker.diagnostics { layout = "select" }
+    end,
+    mode = { "n" },
+    desc = "Show diagnostics",
+  },
+  {
+    "<space>o",
+    function()
+      Snacks.picker.lsp_symbols()
+    end,
+    mode = { "n" },
+    desc = "LSP symbols",
   },
 }
 
 setup.config = function()
+  Snacks.indent.enable()
+
   vim.api.nvim_create_autocmd("LspProgress", {
     callback = function(ev)
       local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
@@ -132,7 +167,7 @@ setup.config = function()
         id = "lsp_progress",
         title = "LSP Progress",
         opts = function(notif)
-          notif.icon = ev.data.params.value.kin== "end" and " "
+          notif.icon = ev.data.params.value.k== "end" and " "
               or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
         end,
       })

@@ -25,6 +25,7 @@ require "base"
 require "filetypes"
 require "hard_mode"
 require "keybindings"
+require "lsp"
 
 -- Setup lazy.nvim
 require("lazy").setup {

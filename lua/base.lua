@@ -35,7 +35,6 @@ vim.cmd [[set scrolloff=10]]
 
 -- Natural split
 vim.cmd [[set splitbelow]]
--- Natural split
 vim.cmd [[set splitright]]
 
 -- Maintain undo history between sessions
@@ -46,27 +45,8 @@ vim.cmd [[set foldnestmax=2]]
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appear/become resolved.
 -- Recently vim can merge signcolumn and number column into one
-vim.cmd [[
-if has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-]]
+vim.cmd [[set signcolumn=yes]]
 
--- rainbow parentheses
-vim.g.rainbow_active = 1
-
--- Ack - use ag is installed
-vim.cmd [[
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-]]
-
-vim.opt_global.shortmess:remove "F"
-
+-- Display status only once once for the active window instead of showing
+-- status line per open window.
 vim.cmd [[set laststatus=3]]
-
--- hide command bar by default
-vim.o.ch = 0
