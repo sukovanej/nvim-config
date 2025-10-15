@@ -21,7 +21,13 @@ setup.keys = {
 
 setup.opts = {
   highlight = { enable = true },
-  ensure_installed = "all",
+  ensure_installed = {
+    "bash", "c", "css", "csv", "dockerfile", "fish", "git_config", "git_rebase", "gitattributes",
+    "gitignore", "go", "gomod", "gosum", "gotmpl", "haskell", "html", "ini", "javascript",
+    "jinja", "jq", "json", "json5", "just", "lua", "markdown", "markdown_inline",
+    "make", "nix", "python", "rust", "sql", "terraform", "toml", "tsx",
+    "typescript", "typst", "vim", "vimdoc", "yaml", "zig"
+  },
   -- indent doesn't work well for me for Python
   -- indent = { enable = true },
   rainbow = { enable = true },
