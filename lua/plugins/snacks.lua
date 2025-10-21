@@ -28,7 +28,7 @@ setup.opts = {
 setup.keys = {
   -- buffers
   {
-    "gc",
+    "gbc",
     function()
       Snacks.bufdelete()
     end,
@@ -36,7 +36,7 @@ setup.keys = {
     desc = "Delete buffer",
   },
   {
-    "gC",
+    "gbC",
     function()
       Snacks.bufdelete.other()
     end,
@@ -132,12 +132,20 @@ setup.keys = {
     desc = "LSP definitions",
   },
   {
-    "gr",
+    "grr",
     function()
       Snacks.picker.lsp_references()
     end,
     mode = { "n" },
-    desc = "LSP references",
+    desc = "LSP references (overrides the builtin vim.lsp.buf.references())",
+  },
+  {
+    "gO",
+    function()
+      Snacks.picker.lsp_symbols()
+    end,
+    mode = { "n" },
+    desc = "LSP symbols (overrides the builtin vim.lsp.buf.document_symbol())",
   },
   {
     "<space>e",
@@ -146,14 +154,6 @@ setup.keys = {
     end,
     mode = { "n" },
     desc = "Show diagnostics",
-  },
-  {
-    "<space>o",
-    function()
-      Snacks.picker.lsp_symbols()
-    end,
-    mode = { "n" },
-    desc = "LSP symbols",
   },
 }
 

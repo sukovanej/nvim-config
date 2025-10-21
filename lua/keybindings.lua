@@ -13,14 +13,11 @@ vim.cmd [[command Wq wq]]
 vim.cmd [[command Wqa wqa]]
 
 -- Basic buffer key bindings
-vim.keymap.set("n", "L", vim.cmd.bnext, { silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "H", vim.cmd.bprevious, { silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "}", vim.cmd.bnext, { silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "{", vim.cmd.bprevious, { silent = true, desc = "Previous buffer" })
 
 -- LSP
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { silent = true, desc = "Format buffer (LSP)" })
-vim.keymap.set("n", "gR", vim.lsp.buf.rename, { silent = true, desc = "Rename symbol (LSP)" })
 vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true, desc = "Go to next diagnostic (LSP)" })
 vim.keymap.set("n", "<space>[", vim.diagnostic.goto_prev, { silent = true, desc = "Go to previous diagnostic (LSP)" })
-vim.keymap.set("n", "<space>.", vim.lsp.buf.code_action, { silent = true, desc = "Code action (LSP)" })
-
-vim.keymap.del("n", "gcc")
+vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { silent = true, desc = "Code action (overrides the builtin vim.lsp.buf.code_action())" })
