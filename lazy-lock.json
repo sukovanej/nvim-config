@@ -1,5 +1,4 @@
 {
-  "auto-dark-mode": { "branch": "master", "commit": "e300259ec777a40b4b9e3c8e6ade203e78d15881" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "gitsigns.nvim": { "branch": "main", "commit": "20ad4419564d6e22b189f6738116b38871082332" },
@@ -11,6 +10,6 @@
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "b8221e42cf7287c4dcde81f232f58d7b947c210d" },
   "rustaceanvim": { "branch": "master", "commit": "12504405821c05874d2d1f6b5ec919f9808e2c99" },
-  "snacks.nvim": { "branch": "main", "commit": "2aee35d0591f80b4a186e0ad3c600cd05c3f2a4d" },
-  "tokyonight": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" }
+  "snacks.nvim": { "branch": "main", "commit": "050052494e8478547f1df6d9404a3b1049eec980" },
+  "tokyonight": { "branch": "main", "commit": "e63c42a42b11cd6225f009dd949b9ee0fccc15ef" }
 }
