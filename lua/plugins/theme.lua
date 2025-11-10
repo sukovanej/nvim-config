@@ -1,12 +1,14 @@
-local setup = { "folke/tokyonight.nvim" }
+local setup = { "projekt0n/github-nvim-theme" }
 
-setup.name = "tokyonight"
+setup.name = "github-theme"
 setup.lazy = false
-setup.priority = 10001
+setup.priority = 1000
 setup.opts = {}
 
 setup.config = function()
-  vim.cmd [[colorscheme tokyonight]]
+  require("github-theme").setup {}
+
+  vim.cmd "colorscheme github_light_default"
 end
 
 return setup

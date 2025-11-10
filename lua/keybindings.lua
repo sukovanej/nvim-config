@@ -20,4 +20,15 @@ vim.keymap.set("n", "{", vim.cmd.bprevious, { silent = true, desc = "Previous bu
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { silent = true, desc = "Format buffer (LSP)" })
 vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true, desc = "Go to next diagnostic (LSP)" })
 vim.keymap.set("n", "<space>[", vim.diagnostic.goto_prev, { silent = true, desc = "Go to previous diagnostic (LSP)" })
-vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { silent = true, desc = "Code action (overrides the builtin vim.lsp.buf.code_action())" })
+
+vim.api.nvim_create_user_command("CopyRelativePath", function()
+    local path = vim.fn.expand("%:.")
+    vim.fn.setreg("+", path)
+    vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, { desc = "Copy current buffer file path" })
+
+vim.api.nvim_create_user_command("CopyAbsolutePath", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, { desc = "Copy current buffer absolute file path" })

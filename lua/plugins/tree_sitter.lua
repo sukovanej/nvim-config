@@ -62,6 +62,7 @@ setup.opts = {
     "vimdoc",
     "yaml",
     "zig",
+    "wisp",
   },
   -- indent doesn't work well for me for Python
   -- indent = { enable = true },
@@ -80,6 +81,18 @@ setup.opts = {
 }
 
 setup.config = function(_, opts)
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+  -- Register the wisp parser
+  parser_config.wisp = {
+    install_info = {
+      url = "/Users/milansuk/projects/wisp/tree-sitter-wisp", -- Local path
+      files = { "src/parser.c" },
+    },
+    filetype = "wisp",
+  }
+  vim.opt.runtimepath:append("/Users/milansuk/projects/wisp/tree-sitter-wisp")
+
   require("nvim-treesitter.configs").setup(opts)
 end
 

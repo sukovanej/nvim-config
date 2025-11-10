@@ -47,3 +47,5 @@ vim.cmd [[au BufNewFile,BufRead *.MD setlocal filetype=markdown]]
 
 -- .env
 vim.cmd [[au BufNewFile,BufRead *.env.* setlocal filetype=sh]]
+
+vim.cmd [[au BufNewFile,BufRead *.wisp setlocal filetype=wisp]]

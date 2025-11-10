@@ -28,7 +28,7 @@ setup.opts = {
 setup.keys = {
   -- buffers
   {
-    "gbc",
+    "g-",
     function()
       Snacks.bufdelete()
     end,
@@ -36,7 +36,7 @@ setup.keys = {
     desc = "Delete buffer",
   },
   {
-    "gbC",
+    "g=",
     function()
       Snacks.bufdelete.other()
     end,
@@ -76,7 +76,7 @@ setup.keys = {
   {
     "<space><space>",
     function()
-      Snacks.picker.files()
+      Snacks.picker.files({ hidden = true })
     end,
     mode = { "n" },
     desc = "Search in files",
@@ -92,7 +92,7 @@ setup.keys = {
   {
     "<space>a",
     function()
-      Snacks.picker.grep()
+      Snacks.picker.grep({ hidden = true })
     end,
     mode = { "n" },
     desc = "Grep",
@@ -150,7 +150,7 @@ setup.keys = {
   {
     "<space>e",
     function()
-      Snacks.picker.diagnostics { layout = "select" }
+      Snacks.picker.diagnostics { layout = "bottom" }
     end,
     mode = { "n" },
     desc = "Show diagnostics",
