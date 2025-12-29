@@ -76,7 +76,7 @@ setup.keys = {
   {
     "<space><space>",
     function()
-      Snacks.picker.files({ hidden = true })
+      Snacks.picker.files { hidden = true }
     end,
     mode = { "n" },
     desc = "Search in files",
@@ -92,7 +92,7 @@ setup.keys = {
   {
     "<space>a",
     function()
-      Snacks.picker.grep({ hidden = true })
+      Snacks.picker.grep { hidden = true }
     end,
     mode = { "n" },
     desc = "Grep",
@@ -111,7 +111,7 @@ setup.keys = {
       Snacks.picker.lines()
     end,
     mode = { "n" },
-    desc = "File explorer",
+    desc = "Search lines in current buffer",
   },
   {
     "<space>w",
@@ -150,10 +150,15 @@ setup.keys = {
   {
     "<space>e",
     function()
-      Snacks.picker.diagnostics { layout = "bottom" }
+      vim.diagnostic.open_float(nil, {
+        wrap = true,
+        max_width = 80,
+        focus = true,
+        border = "rounded",
+      })
     end,
     mode = { "n" },
-    desc = "Show diagnostics",
+    desc = "Show line diagnostics (wrapped)",
   },
 }
 

@@ -91,7 +91,7 @@ setup.config = function(_, opts)
     },
     filetype = "wisp",
   }
-  vim.opt.runtimepath:append("/Users/milansuk/projects/wisp/tree-sitter-wisp")
+  vim.opt.runtimepath:append "/Users/milansuk/projects/wisp/tree-sitter-wisp"
 
   require("nvim-treesitter.configs").setup(opts)
 end

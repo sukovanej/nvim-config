@@ -22,13 +22,13 @@ vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true, desc 
 vim.keymap.set("n", "<space>[", vim.diagnostic.goto_prev, { silent = true, desc = "Go to previous diagnostic (LSP)" })
 
 vim.api.nvim_create_user_command("CopyRelativePath", function()
-    local path = vim.fn.expand("%:.")
-    vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+  local path = vim.fn.expand "%:."
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, { desc = "Copy current buffer file path" })
 
 vim.api.nvim_create_user_command("CopyAbsolutePath", function()
-    local path = vim.fn.expand("%:p")
-    vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+  local path = vim.fn.expand "%:p"
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, { desc = "Copy current buffer absolute file path" })
