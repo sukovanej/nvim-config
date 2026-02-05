@@ -9,6 +9,13 @@ setup.dependencies = {
 function setup.config(_)
   local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+  -- Enable semantic tokens for servers that support it
+  local on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/semanticTokens/full") then
+      vim.lsp.semantic_tokens.start(bufnr, client.id)
+    end
+  end
+
   require("mason").setup()
   require("mason-lspconfig").setup {
     ensure_installed = { "lua_ls", "ty" },
@@ -17,6 +24,7 @@ function setup.config(_)
       function(server_name)
         require("lspconfig")[server_name].setup {
           capabilities = capabilities,
+          on_attach = on_attach,
         }
       end,
 
@@ -24,6 +32,7 @@ function setup.config(_)
       ["lua_ls"] = function()
         require("lspconfig").lua_ls.setup {
           capabilities = capabilities,
+          on_attach = on_attach,
           settings = {
             Lua = {
               diagnostics = {
