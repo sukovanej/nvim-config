@@ -1,0 +1,6 @@
+[tools]
+stylua = "latest"
+
+[tasks.format]
+description = "Format Lua files with stylua"
+run = "stylua \"$@\" ."

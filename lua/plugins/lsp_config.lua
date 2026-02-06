@@ -11,7 +11,7 @@ function setup.config(_)
 
   -- Enable semantic tokens for servers that support it
   local on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/semanticTokens/full") then
+    if client.supports_method "textDocument/semanticTokens/full" then
       vim.lsp.semantic_tokens.start(bufnr, client.id)
     end
   end
