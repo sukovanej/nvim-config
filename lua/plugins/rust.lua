@@ -1,6 +1,6 @@
 local setup = { "mrcjkb/rustaceanvim" }
 
-setup.version = "^6"
-setup.layz = false
+setup.version = "^8"
+setup.lazy = false
 
 return setup
