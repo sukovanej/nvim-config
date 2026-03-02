@@ -21,6 +21,10 @@ vim.keymap.set("n", "<space>f", vim.lsp.buf.format, { silent = true, desc = "For
 vim.keymap.set("n", "<space>]", vim.diagnostic.goto_next, { silent = true, desc = "Go to next diagnostic (LSP)" })
 vim.keymap.set("n", "<space>[", vim.diagnostic.goto_prev, { silent = true, desc = "Go to previous diagnostic (LSP)" })
 
+-- Markdown
+vim.keymap.set("n", "<leader>mt", "<cmd>Markview toggle<cr>", { silent = true, desc = "Toggle Markdown preview" })
+vim.keymap.set("n", "<leader>mr", "<cmd>Markview render<cr>", { silent = true, desc = "Render Markdown" })
+
 vim.api.nvim_create_user_command("CopyRelativePath", function()
   local path = vim.fn.expand "%:."
   vim.fn.setreg("+", path)
