@@ -4,24 +4,10 @@ setup.priority = 10000
 setup.lazy = false
 
 setup.opts = {
-  bufdelete = { enabled = true },
-  terminal = { enabled = true },
-  modifier = { enabled = true },
   indent = { enabled = true },
+  input = { enabled = true },
+  notifier = { enabled = true },
   statuscolumn = { enabled = true },
-  input = {
-    enabled = true,
-    keys = {
-      n_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "n" },
-      i_esc = { "<esc>", { "cmp_close", "stopinsert" }, mode = "i" },
-      n_cr = { "<cr>", { "cmp_accept", "confirm", "cmp_close" }, mode = { "n" } },
-      i_cr = { "<cr>", { "cmp_accept", "confirm", "cmp_close" }, mode = { "i" } },
-      i_tab = { "<tab>", { "cmp_select_next", "cmp" }, mode = "i" },
-      q = "cancel",
-    },
-  },
-  git = { enabled = true },
-  lazygit = { enabled = true },
   words = { enabled = true },
 }
 
@@ -32,7 +18,6 @@ setup.keys = {
     function()
       Snacks.bufdelete()
     end,
-    mode = { "n" },
     desc = "Delete buffer",
   },
   {
@@ -40,7 +25,6 @@ setup.keys = {
     function()
       Snacks.bufdelete.other()
     end,
-    mode = { "n" },
     desc = "Delete all but the current buffer",
   },
 
@@ -60,7 +44,6 @@ setup.keys = {
     function()
       Snacks.lazygit()
     end,
-    mode = { "n" },
     desc = "Lazygit",
   },
   {
@@ -68,7 +51,6 @@ setup.keys = {
     function()
       Snacks.lazygit.log()
     end,
-    mode = { "n" },
     desc = "Lazygit",
   },
 
@@ -78,7 +60,6 @@ setup.keys = {
     function()
       Snacks.picker.files { hidden = true }
     end,
-    mode = { "n" },
     desc = "Search in files",
   },
   {
@@ -86,7 +67,6 @@ setup.keys = {
     function()
       Snacks.picker.buffers()
     end,
-    mode = { "n" },
     desc = "Search in buffers",
   },
   {
@@ -94,7 +74,6 @@ setup.keys = {
     function()
       Snacks.picker.grep { hidden = true }
     end,
-    mode = { "n" },
     desc = "Grep",
   },
   {
@@ -102,7 +81,6 @@ setup.keys = {
     function()
       Snacks.explorer { layout = { layout = { position = "right" } } }
     end,
-    mode = { "n" },
     desc = "File explorer",
   },
   {
@@ -110,7 +88,6 @@ setup.keys = {
     function()
       Snacks.picker.lines()
     end,
-    mode = { "n" },
     desc = "Search lines in current buffer",
   },
   {
@@ -118,7 +95,6 @@ setup.keys = {
     function()
       Snacks.picker.grep_word()
     end,
-    mode = { "n" },
     desc = "Grep current word",
   },
 
@@ -128,7 +104,6 @@ setup.keys = {
     function()
       Snacks.picker.lsp_definitions()
     end,
-    mode = { "n" },
     desc = "LSP definitions",
   },
   {
@@ -136,7 +111,6 @@ setup.keys = {
     function()
       Snacks.picker.lsp_references()
     end,
-    mode = { "n" },
     desc = "LSP references (overrides the builtin vim.lsp.buf.references())",
   },
   {
@@ -144,7 +118,6 @@ setup.keys = {
     function()
       Snacks.picker.lsp_symbols()
     end,
-    mode = { "n" },
     desc = "LSP symbols (overrides the builtin vim.lsp.buf.document_symbol())",
   },
   {
@@ -154,17 +127,13 @@ setup.keys = {
         wrap = true,
         max_width = 80,
         focus = true,
-        border = "rounded",
       })
     end,
-    mode = { "n" },
     desc = "Show line diagnostics (wrapped)",
   },
 }
 
-setup.config = function()
-  Snacks.indent.enable()
-
+setup.init = function()
   vim.api.nvim_create_autocmd("LspProgress", {
     callback = function(ev)
       local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
@@ -172,15 +141,13 @@ setup.config = function()
         id = "lsp_progress",
         title = "LSP Progress",
         opts = function(notif)
-          notif.icon = ev.data.params.value.k == "end" and " "
+          notif.icon = ev.data.params.value.kind == "end" and " "
             or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
         end,
       })
     end,
   })
-end
 
-setup.init = function()
   vim.api.nvim_create_autocmd("User", {
     pattern = "VeryLazy",
     callback = function()

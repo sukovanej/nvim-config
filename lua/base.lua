@@ -1,52 +1,45 @@
--- TextEdit might fail if hidden is not set.
-vim.cmd [[set hidden]]
+vim.o.cursorline = true
+vim.o.updatetime = 300
+vim.o.mouse = "a"
+vim.o.clipboard = "unnamedplus"
+vim.o.number = true
+vim.o.relativenumber = true
 
--- Highlight the current line
-vim.cmd [[set cursorline]]
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
--- Some servers have issues with backup files, see #649.
-vim.cmd [[set nobackup]]
-vim.cmd [[set nowritebackup]]
-
--- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
--- delays and poor user experience.
-vim.cmd [[set updatetime=300]]
-
-vim.cmd [[set encoding=UTF-8]]
-vim.cmd [[set termguicolors]]
-vim.cmd [[set mouse=a]]
-vim.cmd [[set clipboard+=unnamedplus]]
-vim.cmd [[set number]]
-vim.cmd [[set relativenumber]]
-vim.cmd [[let mapleader = ' ']]
-vim.cmd [[let maplocalleader=" "]]
-vim.cmd [[set nocompatible]]
-
-vim.cmd [[set smartcase]]
-
-vim.cmd [[filetype plugin indent on]]
-vim.cmd [[set tabstop=4]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[set expandtab ]]
-vim.cmd [[set nowrap]]
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.wrap = false
 
 -- Gap from the top/bottom when scrolling
-vim.cmd [[set scrolloff=10]]
+vim.o.scrolloff = 10
 
--- Natural split
-vim.cmd [[set splitbelow]]
-vim.cmd [[set splitright]]
+vim.o.splitbelow = true
+vim.o.splitright = true
 
--- Maintain undo history between sessions
-vim.cmd [[set undofile]]
-vim.cmd [[set undodir=~/.vim/undodir]]
-vim.cmd [[set foldnestmax=2]]
+vim.o.undofile = true
+vim.o.undodir = vim.fn.expand "~/.vim/undodir"
 
--- Always show the signcolumn, otherwise it would shift the text each time
--- diagnostics appear/become resolved.
--- Recently vim can merge signcolumn and number column into one
-vim.cmd [[set signcolumn=yes]]
+-- Keep text from shifting when diagnostics appear
+vim.o.signcolumn = "yes"
 
--- Display status only once once for the active window instead of showing
--- status line per open window.
-vim.cmd [[set laststatus=3]]
+-- One statusline for all windows
+vim.o.laststatus = 3
+
+vim.o.winborder = "rounded"
+
+vim.diagnostic.config {
+  virtual_text = true,
+  jump = {
+    on_jump = function(diagnostic, bufnr)
+      if diagnostic then
+        vim.diagnostic.open_float { bufnr = bufnr, scope = "cursor", focus = false }
+      end
+    end,
+  },
+}
+
+-- neovim/neovim#36318 breaks inlay hints with multiple LSP clients. The fix (#40569) is on master, with no 0.12 backport.
+-- vim.lsp.inlay_hint.enable(true)

@@ -1,4 +1,0 @@
-.PHONY: format
-
-format:
-	stylua .

@@ -1,11 +1,6 @@
 local setup = { "nvim-lualine/lualine.nvim" }
 
-setup.dependencies = {
-  require("plugins.theme").name,
-  "nvim-tree/nvim-web-devicons",
-}
-
-setup.lazy = false
+setup.dependencies = "nvim-tree/nvim-web-devicons"
 
 setup.opts = {
   sections = {
@@ -29,9 +24,5 @@ setup.opts = {
     lualine_c = { "filename" },
   },
 }
-
-function setup.config(_, opts)
-  require("lualine").setup(opts)
-end
 
 return setup
