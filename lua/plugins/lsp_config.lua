@@ -2,6 +2,6 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    vim.lsp.enable { "clangd", "lua_ls", "tsgo", "ty" }
+    vim.lsp.enable { "clangd", "gopls", "lua_ls", "tsgo", "ty" }
   end,
 }
